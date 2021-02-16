@@ -13,7 +13,21 @@
     
     <!-- google fonts -->
 </head>
+
 <body>
-    
+    <form action="/ticketDash" method="POST">
+        <input type="text" name="ticketTitle" id="ticketTitle">
+        <input type="text" name="ticketUrgency" id="ticketUrgency">
+        <input type="text" name="ticketCreatedBy" id="ticketCreatedBy">
+        <input type="text" name="ticketAssignedTo" id="ticketAssignedTo">
+        <input type="datetime" name="ticketCreatedDate" id="ticketCreatedDate">
+        <input type="datetime" name="ticketDueDate" id="ticketDueDate">
+
+        <button type="submit"></button>
+    </form>
+
+
+
+    <script src="assets/javascript/main.js"></script>
 </body>
 </html>
