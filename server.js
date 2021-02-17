@@ -4,13 +4,17 @@ const path = require('path');
 const router = express.Router();
 
 
-// ========================
-// get
-// ========================
+// ========================================================================
+// index
+// ========================================================================
 
 app.get('/', (req, res) => {
     res.sendFile('/Users/student/Documents/Documents - STUSD1040/dev/ticketCapstone/index.html')
 })
+
+// ========================================================================
+// create form page
+// ========================================================================
 
 app.get('/createForm', function (req, res,html) {
     res.sendFile(path.join(
