@@ -93,6 +93,7 @@ nav {
 ***/
 
 /***BUTTONS****/
+
 #create, #edit {
     background-color: rgb(66, 185, 224);
     border: none;
@@ -112,12 +113,11 @@ nav {
     right: 100px;
 }
 
-/****TICKET DISPLAY ******/
+/**** TICKET DISPLAY ******/
 #ticketHeader, #tickets {
     margin: 0 auto;
     border-radius: 2px;
 }
-
 
 #ticketHeader .card {
     background-color: lightblue;
