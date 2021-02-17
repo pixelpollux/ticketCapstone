@@ -8,12 +8,21 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <!-- custom css -->
     <link rel="stylesheet" href="assets/css/tickets.css">
-    <title>debuggr</title>
+    <title>dbuggr</title>
 </head>
 <body>
-    <div id="mainWrapper" class="wrap col-11">
+    <!-----NavBar---->
+    <nav>
+        <img src="assets/images/logo_transparent-CROPPED.png" id="logo" alt="dbuggr logo">
+        <a class="nav-link active" href="#">Ticket Dashboard</a>
+        <a class="nav-link" href="#">Create Ticket</a>
+        <a class="nav-link" href="#">Log Out</a>
+      </nav>
+
+    <div id="mainWrapper" class="wrap col-12">
+
     <!----Charts & Graphs --->
-    <div id="charts" class="container-fluid">
+    <div id="charts" class="container-fluid justify-content-center col-11">
         <div class="row">
             <div id="graph1" class="col-sm-4">
               <div class="card">
@@ -34,61 +43,92 @@
           </div>
     </div>
 
-    <!----Ticket Display --->
-    <div id="ticketDisplay" class="container-fluid justify-content-center">
+    <!---- Ticket Display --->
+    <div id="ticketDisplay" class="container-fluid">
         <button id="create">Create Ticket</button>
         <button id="edit">Edit Ticket</button>
         <div class="row">
-            <div class="col-12">
-                  <!----- Heading ----->
-                <div id="ticketHeader" class="row text-center">
-                    <div class="col-sm-1 pt-4 pl-3">
+            <div class="col-11 container-fluid justify-content-center">
+                <!----- Heading ----->
+                <div id="ticketHeader" class="row text-center pt-4">
+                    <div class="card col-sm-1">
                           <p class="card-text">ID#</p>
                     </div>
-                    <div class="col-sm-3 pt-4">
+                    <div class="card col-sm-3">
                             <p class="card-text">Title</p>
                     </div>
-                    <div class="col-sm-3 pt-4">
+                    <div class=" card col-sm-3">
                             <p class="card-text">Created By</p>
                       </div>
-                      <div class="col-sm-1 pt-4">
+                      <div class="card col-sm-1">
                               <p class="card-text">Date Created</p>
                       </div>
-                      <div class="col-sm-1 pt-4">
+                      <div class="card col-sm-1">
                             <p class="card-text">Date Due</p>
                       </div>
-                      <div class="col-sm-2 pt-4">
+                      <div class="card col-sm-2">
                               <p class="card-text">Assigned To</p>
                       </div>
+                      <div class="card col-sm-1">
+                        <p class="card-text"></p>
+                    </div>
                 </div>
 
-                    <!---- Tickets ----->
-                <div class="row">
-                    <div class="col-sm-12 pt-3">
-                      <div class="card">
-                        <div class="card-body">
-                          <h5 class="card-title">Special title treatment</h5>
-                          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                      </div>
-                    </div>
+                <!---- Tickets ----->
+                <div id="tickets" class="row text-center pt-4">
+                    <div class="card col-sm-1">
+                        <p class="card-text">1289374</p>
                   </div>
-                  <div class="row">
-                    <div class="col-sm-12 pt-3">
-                      <div class="card">
-                        <div class="card-body">
-                          <h5 class="card-title">Special title treatment</h5>
-                          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                      </div>
-                    </div>
+                  <div class="card col-sm-3">
+                          <p class="card-text">Server is not connecting</p>
                   </div>
-            </div>
+                  <div class="card col-sm-3">
+                          <p class="card-text">Dennis Franz</p>
+                    </div>
+                    <div class="card col-sm-1">
+                            <p class="card-text">1/23/2021</p>
+                    </div>
+                    <div class="card col-sm-1">
+                          <p class="card-text">2/23/2021</p>
+                    </div>
+                    <div class="card col-sm-2">
+                            <p class="card-text">Terry Solson</p>
+                    </div>
+                    <div class="card col-sm-1">
+                        <p class="btn btn-danger">Delete</btn>
+                    </div>
+
+                 
+                        <div class="card col-sm-1">
+                            <p class="card-text">238998</p>
+                      </div>
+                      <div class="card col-sm-3">
+                              <p class="card-text">Trouble with the UI</p>
+                      </div>
+                      <div class="card col-sm-3">
+                              <p class="card-text">Elliot Ness</p>
+                        </div>
+                        <div class="card col-sm-1">
+                                <p class="card-text">12/4/19</p>
+                        </div>
+                        <div class="card col-sm-1">
+                              <p class="card-text">1/4/20</p>
+                        </div>
+                        <div class="card col-sm-2">
+                                <p class="card-text">Stephanie Mills</p>
+                        </div>
+                        <div class="card col-sm-1">
+                            <p class="btn btn-danger">Delete</btn>
+                        </div>
+                    </div>
+                </div>
+                  
         </div>
     </div>
     </div>
     <script src="main.js"></script>
+    <footer class="col-12 container-fluid justify-content-center">
+        
+    </footer>
 </body>
 </html>
