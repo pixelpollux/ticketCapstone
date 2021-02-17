@@ -3,11 +3,16 @@ body {
     font-family: arial, sans-serif;
 }
 
+#mainWrapper {
+    padding-bottom: 50px;;
+}
+
 .wrap {
     background-color: lightgray;
     margin: 0 auto;
 }
 
+/**** GRAPHS ******/
 #graph1 .card, #graph2 .card {
     height: 300px;
     margin: 120px 0 30px;
@@ -26,17 +31,27 @@ body {
 }
 ***/
 
+/***BUTTONS****/
 #create, #edit {
     background-color: rgb(66, 185, 224);
     border: none;
     padding: 10px;
     width: 160px;
+    position: absolute;
+}
+
+#create {
+    right: 195px;
+    top: 505px;
 }
 
 #edit {
     background-color: rgb(81, 163, 60);
+    right: 30px;
+    top: 505px;
 }
 
+/****TICKET DISPLAY ******/
 #ticketHeader {
     background-color: lightblue;
     margin: 0 auto;
