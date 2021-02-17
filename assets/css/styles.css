@@ -1,181 +1,134 @@
 body {
-    background-color: gray;
-    font-family: arial, sans-serif;
+  font-family: "Karla", sans-serif;
+  background-color: #d0d0ce;
+  min-height: 100vh;
 }
 
-#mainWrapper {
-    padding-bottom: 50px;;
+.brand-wrapper {
+  margin-bottom: 19px;
+}
+.brand-wrapper .logo {
+  height: 37px;
 }
 
-/***** NAVBAR ******/
-#logo {
-    height: 80px;
-    padding-left: 50px;
+.login-card {
+    margin-top: 20%;
+  border: 0;
+  border-radius: 27.5px;
+  box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43);
+  overflow: hidden;
 }
 
-nav {
-    height: 100px;
-    background-color: rgb(139, 208, 230);
-    color: red;
+.login-card-img {
+  border-radius: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
 }
-
-.nav-link:nth-child(1) {
-    display: inline-block;
-    margin-right: 200px;
-    color: red;
+.login-card .card-body {
+  padding: 85px 60px 60px;
 }
-
-
-/* Add a black background color to the top navigation */
-.topnav {
-    background-color: #333;
-    overflow: hidden;
+@media (max-width: 422px) {
+  .login-card .card-body {
+    padding: 35px 24px;
   }
-  
-  /* Style the links inside the navigation bar */
-  .topnav a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  
-  /* Change the color of links on hover */
-  .topnav a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-  
-  /* Add an active class to highlight the current page */
-  .topnav a.active {
-    background-color: #4CAF50;
-    color: white;
-  }
-  
-  /* Hide the link that should open and close the topnav on small screens */
-  .topnav .icon {
-    display: none;
-  }
-
-
-
-#logo {
-    height: 80px;
-    margin-left: 40px;
-    margin-top: 15px;
 }
-
-.wrap {
-    background-color: lightgray;
+.login-card-description {
+  font-size: 2rem;
+  color: #000;
+  font-weight: normal;
+  margin-bottom: 0 auto;
+}
+.login-card form {
     margin: 0 auto;
-   
+  max-width: 80%;
+}
+.login-card .form-control {
+  border: 1px solid #d5dae2;
+  padding: 15px 25px;
+  margin-bottom: 20px;
+  min-height: 45px;
+  font-size: 13px;
+  line-height: 15;
+  font-weight: normal;
+}
+.login-card .form-control::-webkit-input-placeholder {
+  color: #919aa3;
+}
+.login-card .form-control::-moz-placeholder {
+  color: #919aa3;
+}
+.login-card .form-control:-ms-input-placeholder {
+  color: #919aa3;
+}
+.login-card .form-control::-ms-input-placeholder {
+  color: #919aa3;
+}
+.login-card .form-control::placeholder {
+  color: #919aa3;
+}
+.login-card .login-btn {
+  padding: 13px 20px 12px;
+  background-color: #000;
+  border-radius: 4px;
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 20px;
+  color: #fff;
+  margin-bottom: 24px;
+}
+.login-card .login-btn:hover {
+  border: 1px solid #000;
+  background-color: transparent;
+  color: #000;
+}
+.login-card .forgot-password-link {
+  font-size: 14px;
+  color: #919aa3;
+  margin-bottom: 12px;
+}
+.login-card-footer-text {
+  font-size: 16px;
+  color: #0d2366;
+  margin-bottom: 60px;
+}
+@media (max-width: 767px) {
+  .login-card-footer-text {
+    margin-bottom: 24px;
+  }
+}
+.login-card-footer-nav a {
+  font-size: 14px;
+  color: #919aa3;
 }
 
-/**** GRAPHS ******/
-#graph1 .card, #graph2 .card {
-    height: 300px;
-    margin: 90px 0 30px;
-    padding: 0 30px; 
-}
-
-
-
-/** #ticketDisplay {
-    height: 300px;
-    background-color: green;
-    color: white;
-    width: 95%;
-    bottom: 0;
-}
-***/
-
-/***BUTTONS****/
-#create, #edit {
-    background-color: rgb(66, 185, 224);
-    border: none;
-    padding: 10px;
-    width: 160px;
-    position: absolute;
-    top: 475px;
-    border-radius: 2px;
-}
-
-#create {
-    right: 270px;
-}
-
-#edit {
-    background-color: rgb(81, 163, 60);
-    right: 100px;
-}
-
-/****TICKET DISPLAY ******/
-#ticketHeader, #tickets {
-    margin: 0 auto;
-    border-radius: 2px;
-}
-
-
-#ticketHeader .card {
-    background-color: lightblue;
-    margin-top: 75px;
-    padding-bottom: 10px;
-    margin-bottom: -17px;
-}
-
-#tickets .card, #ticketHeader .card {
-    border: none;
-    padding: 20px 0;
-}
-
-#tickets .card {
-    padding-bottom: 0;
-    margin-bottom: 10px;
-}
-
-a {
-    position: absolute;
-    right: 10px;
-    top: 20px;
-}
-
-h5, p {
-    color: black;
-}
-
-.btn-danger { 
-    margin-right: 20px;
-}
-
-/**** FOOTER ******/
-
-footer {
-    background-color: rgb(109, 171, 192);
-    height: 100px;
-}
+/*# sourceMappingURL=login.css.map */
 
 /* =========================================================================================== */
 /* index styles */
 /* =========================================================================================== */
 
 #index-body {
-    background-color: #f6f7fb;
+  background-color: #f6f7fb;
 }
 
 #index-main {
-    color: #6d6d6d;
-    background-color: #f6f7fb;
+  color: #6d6d6d;
+  background-color: #f6f7fb;
 }
 
 #login-container {
-    border: #6d6d6d 1px solid;
-    padding: 0 auto;
-    margin: 5rem auto;
+  border: #6d6d6d 1px solid;
+  padding: 0 auto;
+  margin: 5rem auto;
+}
+
+#login-image {
+  max-width: 100%;
 }
 
 #section-container {
-    padding: 0 auto;
+  padding: 0 auto;
 }
