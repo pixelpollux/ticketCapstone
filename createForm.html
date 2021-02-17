@@ -16,14 +16,24 @@
 
 <body>
     <form action="/ticketDash" method="POST">
-        <input type="text" name="ticketTitle" id="ticketTitle">
-        <input type="text" name="ticketUrgency" id="ticketUrgency">
-        <input type="text" name="ticketCreatedBy" id="ticketCreatedBy">
-        <input type="text" name="ticketAssignedTo" id="ticketAssignedTo">
-        <!-- <input type="datetime" name="ticketCreatedDate" id="ticketCreatedDate">
-        <input type="datetime" name="ticketDueDate" id="ticketDueDate"> -->
+        <label for="ticketTitle">Title
+            <input type="text" name="ticketTitle" id="ticketTitle">
+        </label>
 
-        <button type="submit"></button>
+<!----------------- possible future tickets, uncomment to activate --------------------->
+<!-------------------------------------------------------------------------------------->
+        <!-- <label for="ticketUrgency">Urgency
+            <input type="text" name="ticketUrgency" id="ticketUrgency">
+        </label>
+        <label for="ticketCreatedBy">Created By 
+            <input type="text" name="ticketCreatedBy" id="ticketCreatedBy">
+        </label>
+        <label for="ticketAssignedTo">Assigned To
+            <input type="text" name="ticketAssignedTo" id="ticketAssignedTo">
+        </label> -->
+<!-------------------------------------------------------------------------------------->
+<!--------------------------------- end future tickets --------------------------------->
+        <button type="submit">Submit</button>
     </form>
 
 
