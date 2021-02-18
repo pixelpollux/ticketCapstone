@@ -1,37 +1,61 @@
 const express = require('express');
-const bodyParser= require('body-parser')
+const bodyParser= require('body-parser');
+const MongoClient = require('mongodb').MongoClient;
 const app = express();
 const path = require('path');
 const router = express.Router();
 
-//body parser
-app.use(bodyParser.urlencoded({ extended: true }))
+
+
 
 // ========================================================================
-// index
+//mongo
 // ========================================================================
+MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.mongodb.net/<dbname>?retryWrites=true&w=majority', {
+    useUnifiedTopology: true}, (err, client) => {
+    if (err) return console.error(err)
+    console.log('Connected to Database')
+    const db = client.db('ticket-tracker-db')
+    const ticketsCollection = db.collection('tickets')
 
-app.get('/', (req, res) => {
-    res.sendFile('/Users/student/Documents/Documents - STUSD1040/dev/ticketCapstone/index.html')
-})
+    // ========================================================================
+    //body parser
+    // ========================================================================
+    app.use(bodyParser.urlencoded({ extended: true }))
 
-// ========================================================================
-// create form page
-// ========================================================================
+    // ========================================================================
+    // index
+    // ========================================================================
 
-app.get('/createForm', function (req, res,html) {
-    res.sendFile(path.join(
-        '/Users/student/Documents/Documents - STUSD1040/dev/ticketCapstone/createForm.html'
-    ));
-});
+    app.get('/', (req, res) => {
+        res.sendFile('/Users/student/Documents/Documents - STUSD1040/dev/ticketCapstone/index.html')
+    })
 
-app.post('/tickets', function (req, res) {
-    // res.sendFile(path.join(
-    //     'tickets.html'
-    // ))
-    console.log(req.body)
-    console.log("did this work?")
-});
+    // ========================================================================
+    // create form page
+    // ========================================================================
+
+    app.get('/createForm', function (req, res,html) {
+        res.sendFile(path.join(
+            '/Users/student/Documents/Documents - STUSD1040/dev/ticketCapstone/createForm.html'
+        ));
+    });
+
+    //creates tickets and sends to database
+    app.post('/tickets', (req, res) => {
+        console.log(req.body)
+        console.log("did this work?")
+        ticketsCollection.insertOne(req.body)
+        .then(result => {
+            console.log(result)
+            res.redirect('/');
+        })
+        .catch(error => console.error(error))
+    })
+
+  })
+
+
 
 
 
@@ -39,7 +63,7 @@ app.post('/tickets', function (req, res) {
 // ========================
 // Listen
 // ========================
-const port = 9999
+const port = 9990
 app.use('/', router);
 app.listen(port, function(){
     console.log(`listening on port ${port}`)
