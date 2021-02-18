@@ -1,8 +1,11 @@
 const express = require('express');
+const bodyParser= require('body-parser')
 const app = express();
 const path = require('path');
 const router = express.Router();
 
+//body parser
+app.use(bodyParser.urlencoded({ extended: true }))
 
 // ========================================================================
 // index
@@ -23,9 +26,10 @@ app.get('/createForm', function (req, res,html) {
 });
 
 app.post('/tickets', function (req, res) {
-    res.send(path.join(
-        '/tickets.html'
-    ))
+    // res.sendFile(path.join(
+    //     'tickets.html'
+    // ))
+    console.log(req.body)
     console.log("did this work?")
 });
 
