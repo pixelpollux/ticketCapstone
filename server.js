@@ -22,6 +22,12 @@ app.get('/createForm', function (req, res,html) {
     ));
 });
 
+app.post('/tickets', function (req, res) {
+    res.send(path.join(
+        '/tickets.html'
+    ))
+    console.log("did this work?")
+});
 
 
 
