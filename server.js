@@ -5,6 +5,10 @@ const app = express();
 const path = require('path');
 const router = express.Router();
 
+//not sure if need
+const { response } = require('express');
+
+
 
 
 
@@ -23,6 +27,7 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
     // ========================================================================
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(express.static('public'));
+    app.set('view engine', 'ejs')
 
 
 
@@ -35,6 +40,21 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
     })
 
     // ========================================================================
+    // ticket dash page
+    // ========================================================================
+
+    app.get('/tickets', (req, res) => {
+        res.sendFile('/Users/student/Documents/Documents - STUSD1040/dev/ticketCapstone/tickets.html');
+
+        db.collection('tickets').find().toArray()
+        .then(results => {
+        console.log(results)
+        })
+        .catch(error => console.error(error))
+    })
+
+
+    // ========================================================================
     // create form page
     // ========================================================================
 
@@ -44,14 +64,29 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
         ));
     });
 
+    // app.get('/tickets', (req, res) => {
+    //     const cursor = db.collection('tickets').find()
+    //     console.log(cursor)
+        
+    // })
+
+    // app.get('/tickets', (req, res) => {
+    //     db.collection('tickets').find().toArray()
+    //     .then(results => {
+    //       console.log(results)
+    //     })
+    //     .catch(error => console.error(error))
+    // })
+
+
     //creates tickets and sends to database
     app.post('/tickets', (req, res) => {
-        console.log(req.body)
-        console.log("did this work?")
+        // console.log(req.body)
+        // console.log("did this work?")
         ticketsCollection.insertOne(req.body)
         .then(result => {
             console.log(result)
-            res.redirect('/');
+            res.redirect('/tickets');
         })
         .catch(error => console.error(error))
     })
