@@ -21,7 +21,10 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
     // ========================================================================
     //body parser
     // ========================================================================
-    app.use(bodyParser.urlencoded({ extended: true }))
+    app.use(bodyParser.urlencoded({ extended: true }));
+    app.use(express.static('public'));
+
+
 
     // ========================================================================
     // index
