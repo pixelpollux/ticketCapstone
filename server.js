@@ -44,13 +44,15 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
     // ========================================================================
 
     app.get('/tickets', (req, res) => {
-        res.sendFile('/Users/student/Documents/Documents - STUSD1040/dev/ticketCapstone/tickets.html');
+        // res.sendFile('/Users/student/Documents/Documents - STUSD1040/dev/ticketCapstone/tickets.html');
 
         db.collection('tickets').find().toArray()
         .then(results => {
-        console.log(results)
+            res.render('tickets.ejs', { tickets: results })
         })
         .catch(error => console.error(error))
+        // res.render('tickets.ejs', {})
+
     })
 
 
