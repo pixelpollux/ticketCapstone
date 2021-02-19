@@ -26,6 +26,8 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
     //body parser
     // ========================================================================
     app.use(bodyParser.urlencoded({ extended: true }));
+
+    //adds public folder for static files
     app.use(express.static('public'));
     app.set('view engine', 'ejs')
 
@@ -35,6 +37,7 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
     // index
     // ========================================================================
 
+    //renders html static file, need to make it not absolute path somehow
     app.get('/', (req, res) => {
         res.sendFile('/Users/student/Documents/Documents - STUSD1040/dev/ticketCapstone/index.html')
     })
@@ -43,16 +46,24 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
     // ticket dash page
     // ========================================================================
 
+    //renders tickets to ticket page
     app.get('/tickets', (req, res) => {
-        // res.sendFile('/Users/student/Documents/Documents - STUSD1040/dev/ticketCapstone/tickets.html');
-
         db.collection('tickets').find().toArray()
         .then(results => {
             res.render('tickets.ejs', { tickets: results })
         })
         .catch(error => console.error(error))
         // res.render('tickets.ejs', {})
+    })
 
+    //creates tickets and sends to database
+    app.post('/tickets', (req, res) => {
+        ticketsCollection.insertOne(req.body)
+        .then(result => {
+            console.log(result)
+            res.redirect('/tickets');
+        })
+        .catch(error => console.error(error))
     })
 
 
@@ -61,6 +72,7 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
     // ========================================================================
 
     app.get('/createForm', function (req, res,html) {
+        // res.render('createForm.html', {})
         res.sendFile(path.join(
             '/Users/student/Documents/Documents - STUSD1040/dev/ticketCapstone/createForm.html'
         ));
@@ -81,17 +93,7 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
     // })
 
 
-    //creates tickets and sends to database
-    app.post('/tickets', (req, res) => {
-        // console.log(req.body)
-        // console.log("did this work?")
-        ticketsCollection.insertOne(req.body)
-        .then(result => {
-            console.log(result)
-            res.redirect('/tickets');
-        })
-        .catch(error => console.error(error))
-    })
+
 
   })
 

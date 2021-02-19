@@ -30,8 +30,14 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
-        <li><a href="/createForm">create form</a></li>
-        <li><a href="/ticketDash">ticket dashboard</a></li>
+          <li id="nav-link">ejs version</li>
+        <li class="nav-item">
+            <a class="nav-link" href="/createForm">Create Ticket</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/ticketDash">Ticket Dashboard</a>
+        </li>
+<!--         
         <li class="nav-item active">
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
@@ -52,7 +58,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
+        </li> -->
       </ul>
     </div>
   </nav>
@@ -87,8 +93,11 @@
     </div>
     <!---- Ticket Display --->
     <div id="ticketDisplay" class="container-fluid">
-      <button id="create">Create Ticket</button>
-      <button id="edit">Edit Ticket</button>
+        <!-- <div class=""> -->
+            <button id="createTicketButton">Create Ticket</button>
+        <!-- </div> -->
+      
+      <!-- <button id="edit">Edit Ticket</button> -->
       <div class="row">
         <div class="col-11 container-fluid justify-content-center">
           <!----- Heading ----->
@@ -107,14 +116,17 @@
             <% for(var i = 0; i < tickets.length; i++) {%>
                 <tr>
                   <!-- Output name from the iterated quote object -->
-                  <td></td>
-                  <td><%= tickets[i].ticketTitle %></td>
-                  <!-- Output quote from the iterated quote object -->
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                    <td><%= tickets[i]._id %></td>
+                    <td><%= tickets[i].ticketTitle %></td>
+                    <!-- Output quote from the iterated quote object -->
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <btn class="btn btn-danger">Edit</btn>
+                        <btn class="btn btn-danger">Delete</btn>
+                    </td>
                 </tr>
             <% } %>
             <!-- end ticket loop -->
