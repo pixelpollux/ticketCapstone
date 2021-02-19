@@ -7,8 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
   <!-- custom css -->
   <!-- <link rel="stylesheet" href="assets/css/tickets.css"> -->
@@ -38,6 +37,9 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
+        <li id="nav-link">html version</li>
+        <li><a href="/createForm">create form</a></li>
+        <li><a href="/ticketDash">ticket dashboard</a></li>
         <li class="nav-item active">
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
@@ -103,7 +105,7 @@
       <div class="row">
         <div class="col-11 container-fluid justify-content-center">
           <!----- Heading ----->
-          <table>
+          <table id="ticket-table">
             <tr>
               <th>ID#</th>
               <th>TITLE</th>
@@ -126,7 +128,7 @@
                 <btn class="btn btn-danger">Delete</btn>
               </td>
             </tr>
-            <tr>
+            <!-- <tr>
               <td class="td">10002</td>
               <td>Sally</td>
               <td>F</td>
@@ -149,7 +151,7 @@
                 <btn class="btn btn-danger">Edit</btn>
                 <btn class="btn btn-danger">Delete</btn>
               </td>
-            </tr>
+            </tr> -->
           </table>
 
           <!------
