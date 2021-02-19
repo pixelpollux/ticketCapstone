@@ -39,7 +39,8 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
 
     //renders html static file, need to make it not absolute path somehow
     app.get('/', (req, res) => {
-        res.sendFile('/Users/student/Documents/Documents - STUSD1040/dev/ticketCapstone/index.html')
+        res.sendFile(path.join(__dirname + '/public/html/index.html'));
+        // res.sendFile('/Users/student/Documents/Documents - STUSD1040/dev/ticketCapstone/index.html')
     })
 
     // ========================================================================
@@ -53,7 +54,6 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
             res.render('tickets.ejs', { tickets: results })
         })
         .catch(error => console.error(error))
-        // res.render('tickets.ejs', {})
     })
 
     //creates tickets and sends to database
@@ -61,6 +61,7 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
         ticketsCollection.insertOne(req.body)
         .then(result => {
             console.log(result)
+            //sends back to ticket page
             res.redirect('/tickets');
         })
         .catch(error => console.error(error))
@@ -72,10 +73,10 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
     // ========================================================================
 
     app.get('/createForm', function (req, res,html) {
-        // res.render('createForm.html', {})
-        res.sendFile(path.join(
-            '/Users/student/Documents/Documents - STUSD1040/dev/ticketCapstone/createForm.html'
-        ));
+        res.sendFile(path.join(__dirname + '/public/html/createForm.html'));
+        // res.sendFile(path.join(
+        //     '/Users/student/Documents/Documents - STUSD1040/dev/ticketCapstone/createForm.html'
+        // ));
     });
 
     // app.get('/tickets', (req, res) => {
