@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- custom css -->
+  <!-- <link rel="stylesheet" href="assets/css/tickets.css"> -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <title>dbuggr</title>
+</head>
+
+<body>
+  <!-----NavBar---->
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">
+      <img alt="dbuggr logo" src="assets/images/logo_transparent-CROPPED.png">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+          <li id="nav-link">ejs version</li>
+        <li class="nav-item">
+            <a class="nav-link" href="/createForm">Create Ticket</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/ticketDash">Ticket Dashboard</a>
+        </li>
+<!--         
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li> -->
+      </ul>
+    </div>
+  </nav>
+
+  <div id="mainWrapper" class="wrap col-12">
+    <!----Charts & Graphs --->
+    <div id="charts" class="container-fluid justify-content-center col-11">
+      <div class="row">
+        <div id="graph1" class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Chart 1</h5>
+              <p class="card-text">
+                With supporting text below as a natural lead-in to additional
+                content.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div id="graph2" class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Chart 2</h5>
+              <p class="card-text">
+                With supporting text below as a natural lead-in to additional
+                content.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!---- Ticket Display --->
+    <div id="ticketDisplay" class="container-fluid">
+        <!-- <div class=""> -->
+            <button id="createTicketButton">Create Ticket</button>
+        <!-- </div> -->
+      
+      <!-- <button id="edit">Edit Ticket</button> -->
+      <div class="row">
+        <div class="col-11 container-fluid justify-content-center">
+          <!----- Heading ----->
+          <table id="ticket-table">
+            <tr>
+              <th>ID#</th>
+              <th>TITLE</th>
+              <th>CREATED BY</th>
+              <th>DATE CREATED</th>
+              <th>DATE DUE</th>
+              <th>ASSIGNED TO</th>
+              <th></th>
+            </tr>
+            <!----Tickets------>
+            <!-- ticket loop maybe -->
+            <% for(var i = 0; i < tickets.length; i++) {%>
+                <tr>
+                  <!-- Output name from the iterated quote object -->
+                    <td><%= tickets[i]._id %></td>
+                    <td><%= tickets[i].ticketTitle %></td>
+                    <!-- Output quote from the iterated quote object -->
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <btn class="btn btn-danger">Edit</btn>
+                        <btn class="btn btn-danger">Delete</btn>
+                    </td>
+                </tr>
+            <% } %>
+            <!-- end ticket loop -->
+            <tr>
+              <td class="td">10001</td>
+              <td>Tom</td>
+              <td>M</td>
+              <td>30</td>
+              <td>M</td>
+              <td>30</td>
+              <td>
+                <btn class="btn btn-danger">Edit</btn>
+                <btn class="btn btn-danger">Delete</btn>
+              </td>
+            </tr>
+            <!-- <tr>
+              <td class="td">10002</td>
+              <td>Sally</td>
+              <td>F</td>
+              <td>28</td>
+              <td>M</td>
+              <td>30</td>
+              <td>
+                <btn class="btn btn-danger">Edit</btn>
+                <btn class="btn btn-danger">Delete</btn>
+              </td>
+            </tr>
+            <tr>
+              <td class="td">10003</td>
+              <td>Emma</td>
+              <td>F</td>
+              <td>24</td>
+              <td>M</td>
+              <td>30</td>
+              <td>
+                <btn class="btn btn-danger">Edit</btn>
+                <btn class="btn btn-danger">Delete</btn>
+              </td>
+            </tr> -->
+          </table>
+
+          <!------
+          <div id="ticketHeader" class="row text-center pt-4">
+            <div class="card col-sm-1">
+              <p class="card-text">ID#</p>
+            </div>
+            <div class="card col-sm-3">
+              <p class="card-text">Title</p>
+            </div>
+            <div class=" card col-sm-3">
+              <p class="card-text">Created By</p>
+            </div>
+            <div class="card col-sm-1">
+              <p class="card-text">Date Created</p>
+            </div>
+            <div class="card col-sm-1">
+              <p class="card-text">Date Due</p>
+            </div>
+            <div class="card col-sm-2">
+              <p class="card-text">Assigned To</p>
+            </div>
+            <div class="card col-sm-1">
+              <p class="card-text"></p>
+            </div>
+          </div>
+
+          Tickets 
+         <div id="tickets" class="row text-center pt-4">
+            <div class="card col-sm-1">
+              <p class="card-text">1289374</p>
+            </div>
+            <div class="card col-sm-3">
+              <p class="card-text">Server is not connecting</p>
+            </div>
+            <div class="card col-sm-3">
+              <p class="card-text">Dennis Franz</p>
+            </div>
+            <div class="card col-sm-1">
+              <p class="card-text">1/23/2021</p>
+            </div>
+            <div class="card col-sm-1">
+              <p class="card-text">2/23/2021</p>
+            </div>
+            <div class="card col-sm-2">
+              <p class="card-text">Terry Solson</p>
+            </div>
+            <div class="card col-sm-1">
+              <p class="btn btn-danger">Delete</btn>
+            </div>
+
+
+            <div class="card col-sm-1">
+              <p class="card-text">238998</p>
+            </div>
+            <div class="card col-sm-3">
+              <p class="card-text">Trouble with the UI</p>
+            </div>
+            <div class="card col-sm-3">
+              <p class="card-text">Elliot Ness</p>
+            </div>
+            <div class="card col-sm-1">
+              <p class="card-text">12/4/19</p>
+            </div>
+            <div class="card col-sm-1">
+              <p class="card-text">1/4/20</p>
+            </div>
+            <div class="card col-sm-2">
+              <p class="card-text">Stephanie Mills</p>
+            </div>
+           
+           </div> ----->
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="main.js"></script>
+  <footer class="col-12 container-fluid justify-content-center">
+    <p>
+      Copyright &copy;
+      <script>
+        document.write(new Date().getFullYear());
+      </script>
+      - All Rights Reserved
+    </p>
+  </footer>
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
