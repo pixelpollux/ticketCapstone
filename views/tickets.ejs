@@ -111,12 +111,12 @@
               <th>ASSIGNED TO</th>
               <th></th>
             </tr>
-            <!----Tickets------>
-            <!-- ticket loop maybe -->
+
+            <!-- ticket loop -->
             <% for(var i = 0; i < tickets.length; i++) {%>
                 <tr>
                   <!-- Output details from the iterated quote object -->
-                    <td><%= tickets[i]._id %></td>
+                    <td><%= i+1 %></td>
                     <td><%= tickets[i].ticketTitle %></td>
                     <td></td>
                     <td></td>
@@ -146,7 +146,6 @@
       </div>
     </div>
   </div>
-  <script src="main.js"></script>
   <footer class="col-12 container-fluid justify-content-center">
     <p>
       Copyright &copy;
@@ -157,6 +156,7 @@
     </p>
   </footer>
   
+  <script src="assets/javascript/main.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
