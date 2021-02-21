@@ -111,14 +111,13 @@
               <th>ASSIGNED TO</th>
               <th></th>
             </tr>
-            <!----Tickets------>
-            <!-- ticket loop maybe -->
+
+            <!-- ticket loop -->
             <% for(var i = 0; i < tickets.length; i++) {%>
                 <tr>
-                  <!-- Output name from the iterated quote object -->
-                    <td><%= tickets[i]._id %></td>
+                  <!-- Output details from the iterated quote object -->
+                    <td><%= i+1 %></td>
                     <td><%= tickets[i].ticketTitle %></td>
-                    <!-- Output quote from the iterated quote object -->
                     <td></td>
                     <td></td>
                     <td></td>
@@ -142,107 +141,11 @@
                 <btn class="btn btn-danger">Delete</btn>
               </td>
             </tr>
-            <!-- <tr>
-              <td class="td">10002</td>
-              <td>Sally</td>
-              <td>F</td>
-              <td>28</td>
-              <td>M</td>
-              <td>30</td>
-              <td>
-                <btn class="btn btn-danger">Edit</btn>
-                <btn class="btn btn-danger">Delete</btn>
-              </td>
-            </tr>
-            <tr>
-              <td class="td">10003</td>
-              <td>Emma</td>
-              <td>F</td>
-              <td>24</td>
-              <td>M</td>
-              <td>30</td>
-              <td>
-                <btn class="btn btn-danger">Edit</btn>
-                <btn class="btn btn-danger">Delete</btn>
-              </td>
-            </tr> -->
           </table>
-
-          <!------
-          <div id="ticketHeader" class="row text-center pt-4">
-            <div class="card col-sm-1">
-              <p class="card-text">ID#</p>
-            </div>
-            <div class="card col-sm-3">
-              <p class="card-text">Title</p>
-            </div>
-            <div class=" card col-sm-3">
-              <p class="card-text">Created By</p>
-            </div>
-            <div class="card col-sm-1">
-              <p class="card-text">Date Created</p>
-            </div>
-            <div class="card col-sm-1">
-              <p class="card-text">Date Due</p>
-            </div>
-            <div class="card col-sm-2">
-              <p class="card-text">Assigned To</p>
-            </div>
-            <div class="card col-sm-1">
-              <p class="card-text"></p>
-            </div>
-          </div>
-
-          Tickets 
-         <div id="tickets" class="row text-center pt-4">
-            <div class="card col-sm-1">
-              <p class="card-text">1289374</p>
-            </div>
-            <div class="card col-sm-3">
-              <p class="card-text">Server is not connecting</p>
-            </div>
-            <div class="card col-sm-3">
-              <p class="card-text">Dennis Franz</p>
-            </div>
-            <div class="card col-sm-1">
-              <p class="card-text">1/23/2021</p>
-            </div>
-            <div class="card col-sm-1">
-              <p class="card-text">2/23/2021</p>
-            </div>
-            <div class="card col-sm-2">
-              <p class="card-text">Terry Solson</p>
-            </div>
-            <div class="card col-sm-1">
-              <p class="btn btn-danger">Delete</btn>
-            </div>
-
-
-            <div class="card col-sm-1">
-              <p class="card-text">238998</p>
-            </div>
-            <div class="card col-sm-3">
-              <p class="card-text">Trouble with the UI</p>
-            </div>
-            <div class="card col-sm-3">
-              <p class="card-text">Elliot Ness</p>
-            </div>
-            <div class="card col-sm-1">
-              <p class="card-text">12/4/19</p>
-            </div>
-            <div class="card col-sm-1">
-              <p class="card-text">1/4/20</p>
-            </div>
-            <div class="card col-sm-2">
-              <p class="card-text">Stephanie Mills</p>
-            </div>
-           
-           </div> ----->
         </div>
       </div>
     </div>
   </div>
-  <script src="main.js"></script>
   <footer class="col-12 container-fluid justify-content-center">
     <p>
       Copyright &copy;
@@ -253,6 +156,7 @@
     </p>
   </footer>
   
+  <script src="assets/javascript/main.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
