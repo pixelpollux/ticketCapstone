@@ -1,7 +1,7 @@
 body {
   font-family: "Karla", sans-serif;
   background-image: url("../images/bugs_bg_transparent.png");
-  background-color: #dfdfdf;
+  background-color: #eee;
   /*min-height: 100vh;*/
 }
 
@@ -14,7 +14,7 @@ padding-left: 160px;
 }
 
 .navbar-light {
-background-color: rgb(169, 173, 169);
+background-color: rgb(208, 208, 208);
 border-bottom: 3px solid #e2024a;
 }
 
@@ -54,10 +54,10 @@ margin-bottom: -49px;
   padding: 0 10px;
   padding-top: 10px;
   border: 3px solid #e2024a;
-  background: #dfdfdf;
+  background: #eee;
   display: inline-block;
   /*z-index: 2;*/
-  border-bottom-color: #dfdfdf;
+  border-bottom-color: #eee;
   color: #e2024a;
 }
 
@@ -104,12 +104,17 @@ margin-bottom: -49px;
 /* Graphs */
 /* =========================================================================================== */
 #graph1 .card, #graph2 .card {
-height: 300px;
-margin: 120px 0 90px;
-padding: 0 30px; 
+max-height: 400px;
+margin: 150px 0 90px;
+padding: 10px 15px; 
 border-radius: 6px;
-z-index: -3;
 }
+
+#graph1 .card img, #graph2 .card img {
+  height: 300px;
+}
+
+
 
 
 
@@ -252,14 +257,14 @@ z-index: -3;
 .nav-item-button {
 background-color: #e2024a;
 padding: 8px 15px;
-border-radius: 8px 8px 0 0;
+border-radius: 6px 6px 0 0;
 color: white;
 list-style: none;
 position: absolute;
 font-size: 1.1rem;
-top: 470px;
+top: 583px;
 right: 110px;
-font-weight: bold;
+
 }
 
 .nav-item-button a {
@@ -355,18 +360,18 @@ margin: 0 auto;
 }
 
 .btn-outline-dark {
-background-color: #a8bbf3;
-padding: 10px;
-border-radius: 4px;
+background-color: lightblue;
+padding: 10px 15px;
+border-radius: 6px;
 font-weight:900;
 margin-bottom: 4rem;
 margin-left: 2rem;
 box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43);
 }
+
 .btn-outline-dark:hover {
-border: 1px solid #2d2d2d;
-background-color: transparent;
-color: #2d2d2d;
+background-color: rgb(56, 125, 148);
+color: white;
 }
 
 
@@ -393,7 +398,7 @@ bottom: 0;
 width: 100%;
 height: 80px; /* Set the fixed height of the footer here */
 line-height: 60px; /* Vertically center the text there */
-background-color: #dfdfdf;
+background-color: #eee;
 z-index: -1;
 }
 
@@ -405,7 +410,4 @@ z-index: -1;
 .container {
 width: auto;
 text-align: center;
-/*padding: 0 15px;*/
-
-/*margin-top: 40px;*/
 }
