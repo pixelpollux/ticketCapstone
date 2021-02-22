@@ -107,6 +107,7 @@ margin-bottom: -49px;
 height: 300px;
 margin: 120px 0 90px;
 padding: 0 30px; 
+border-radius: 6px;
 z-index: -3;
 }
 
@@ -132,6 +133,7 @@ z-index: -3;
 .brand-wrapper {
   margin-bottom: 19px;
 }
+
 .brand-wrapper .logo {
   height: 37px;
 }
@@ -152,9 +154,11 @@ z-index: -3;
   -o-object-fit: cover;
   object-fit: cover;
 }
+
 .login-card .card-body {
   padding: 85px 60px 60px;
 }
+
 @media (max-width: 422px) {
   .login-card .card-body {
     padding: 35px 24px;
@@ -267,7 +271,6 @@ font-weight: bold;
   /*border: 4px solid #e2024a;*/
   color: black;
 }
-
 
 #ticketDisplay {
 z-index: 3;
@@ -383,11 +386,12 @@ min-height: 100vh;
 body {
 margin-bottom: 100px; /* Margin bottom by footer height */
 }
+
 .footer {
 position: absolute;
 bottom: 0;
 width: 100%;
-height: 40px; /* Set the fixed height of the footer here */
+height: 80px; /* Set the fixed height of the footer here */
 line-height: 60px; /* Vertically center the text there */
 background-color: #dfdfdf;
 z-index: -1;
@@ -400,8 +404,8 @@ z-index: -1;
 
 .container {
 width: auto;
-max-width: 320px;
-padding: 0 15px;
-padding-bottom: 30px;
-margin-top: 40px;
+text-align: center;
+/*padding: 0 15px;*/
+
+/*margin-top: 40px;*/
 }
