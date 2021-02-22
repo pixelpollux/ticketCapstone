@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser= require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 const app = express();
+const ObjectID = require('mongodb').ObjectID;
 const path = require('path');
 const router = express.Router();
 
@@ -40,7 +41,6 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
     //renders html static file, need to make it not absolute path somehow
     app.get('/', (req, res) => {
         res.sendFile(path.join(__dirname + '/public/html/index.html'));
-        // res.sendFile('/Users/student/Documents/Documents - STUSD1040/dev/ticketCapstone/index.html')
     })
 
     // ========================================================================
@@ -74,27 +74,15 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
 
     app.get('/createForm', function (req, res,html) {
         res.sendFile(path.join(__dirname + '/public/html/createForm.html'));
-        // res.sendFile(path.join(
-        //     '/Users/student/Documents/Documents - STUSD1040/dev/ticketCapstone/createForm.html'
-        // ));
     });
 
-    // app.get('/tickets', (req, res) => {
-    //     const cursor = db.collection('tickets').find()
-    //     console.log(cursor)
-        
-    // })
+    // ========================================================================
+    // ticket details page
+    // ========================================================================
 
-    // app.get('/tickets', (req, res) => {
-    //     db.collection('tickets').find().toArray()
-    //     .then(results => {
-    //       console.log(results)
-    //     })
-    //     .catch(error => console.error(error))
-    // })
-
-
-
+    app.get('/tickets/:__id', function (req, res,html) {
+        res.sendFile(path.join(__dirname + '/public/html/ticketDetails.html'));
+    });
 
   })
 

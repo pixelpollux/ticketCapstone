@@ -1,7 +1,7 @@
 body {
   font-family: "Karla", sans-serif;
-  background-image: url("../images/bugs_bg_transparent.png");
-  background-color: #dfdfdf;
+  /* background-image: url("../images/bugs_bg_transparent.png"); */
+  background-color: #f6f7fb;
   /*min-height: 100vh;*/
 }
 
@@ -9,8 +9,8 @@ body {
 /* navbar styles */
 /* =========================================================================================== */
 #logo {
-height: 150px;
-padding-left: 160px;
+/* height: 150px;
+padding-left: 160px; */
 }
 
 .navbar-light {
@@ -18,54 +18,58 @@ background-color: rgb(169, 173, 169);
 border-bottom: 3px solid #e2024a;
 }
 
+.navbar-brand {
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+}
+
 .navbar-brand img {
-  max-height: 5rem;
-  padding-left: 70px;
+  max-height: 2.5rem;
+  /* padding-left: 70px; */
 }
 
 .navbar-nav {
-margin-right: 70px;
-font-size: 1.2rem;
-color: black;
+/* margin-right: 70px; */
+/* font-size: 1.2rem; */
+color: #2d2d2d;
 margin-bottom: -49px;
 }
 
 .tabrow li {
-  padding: 10px 20px;
-  position: relative;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
+  /* padding: .25rem; */
+  margin: 0 .25rem 1.5rem .25rem;
+  position: static;
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem;
+  border: 2px none #e2024a;
 }
 
+.tabrow li:hover {
+  border: 2px solid #e2024a;
+  background: #dfdfdf;
+  display: inline-block;
+  border-bottom-color: #dfdfdf;
+  color: #fff;
+}
+
+.tabrow li.active {
+  border: 2px solid #e2024a;
+  background: #e2024a;
+  color: white !important;
+}
 
 /* Creating Selected Tab Effect */
 
-/*tabrow {
+/* tabrow {
   text-align: center;
   list-style: none;
   margin: 0;
   padding: 0;
-  line-height: 24px;
-}
-*/
+  vertical-align: baseline */
+  /* line-height: 24px; */
+/* } */
 
-.tabrow li:hover {
-  margin: 0 10px;
-  padding: 0 10px;
-  padding-top: 10px;
-  border: 3px solid #e2024a;
-  background: #dfdfdf;
-  display: inline-block;
-  /*z-index: 2;*/
-  border-bottom-color: #dfdfdf;
-  color: #e2024a;
-}
 
-.tabrow li.active {
-  background: #e2024a;
-  color: white;
- /* z-index: 0; */
-}
 
 /*.tabrow:after {
   position: absolute;
@@ -77,28 +81,28 @@ margin-bottom: -49px;
   z-index: 1;
 } */
 
-.tabrow li:before {
+/* .tabrow li:before {
   left: -6px;
   border-bottom-right-radius: 6px;
   border-width: 0 1px 1px 0;
   box-shadow: 2px 2px 0 #e2024a;
-}
+} */
 
-.tabrow li:after {
+/* .tabrow li:after {
   right: -6px;
   border-bottom-left-radius: 6px;
   border-width: 0 0 1px 1px;
   box-shadow: -2px 2px 0 #e2024a;
-}
+} */
 
-.tabrow li:after, .tabrow li:before {
+/* .tabrow li:after, .tabrow li:before {
   position: absolute;
   bottom: -1px;
   width: 6px;
   height: 6px;
-  /*content: " ";*/
+  content: " ";
   border: 3px solid #e2024a;
-}
+} */
 
 /* =========================================================================================== */
 /* Graphs */
@@ -255,10 +259,10 @@ padding: 8px 15px;
 border-radius: 8px 8px 0 0;
 color: white;
 list-style: none;
-position: absolute;
+/* position: absolute; */
 font-size: 1.1rem;
-top: 470px;
-right: 110px;
+/* top: 470px;
+right: 110px; */
 font-weight: bold;
 }
 
@@ -269,7 +273,7 @@ font-weight: bold;
 .nav-item-button:hover {
   background-color: rgb(102, 102, 102);
   /*border: 4px solid #e2024a;*/
-  color: black;
+  color: #2d2d2d;
 }
 
 #ticketDisplay {
