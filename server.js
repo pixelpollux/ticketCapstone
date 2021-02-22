@@ -65,7 +65,20 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
         })
         .catch(error => console.error(error))
     })
+///Need to make UPDATE ticket endpoint =====================
+    app.put('/tickets/:id', req, res) => {
+        ticketsCollection.updateOne(req.body)
+        .then(result => {
 
+        })
+    }
+///Need to make DELETE ticket endpoint =====================
+    app.delete('/tickets/:id', req, res) => {
+        ticketsCollection.deleteOne(req.body)
+        .then(result => {
+
+        })
+}
 
     // ========================================================================
     // create form page
