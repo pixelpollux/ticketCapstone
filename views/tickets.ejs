@@ -10,8 +10,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-  <!-- custom css -->
-  <!-- <link rel="stylesheet" href="assets/css/tickets.css"> -->
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="assets/css/styles.css" />
   <title>dbuggr</title>
 </head>
@@ -29,15 +28,21 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-          <li id="nav-link">ejs version</li>
-        <li class="nav-item">
-            <a class="nav-link" href="/createForm">Create Ticket</a>
+      <ul class="tabrow navbar-nav ml-auto">
+        <li id="nav-link">ejs version</li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/tickets">Ticket Dashboard</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/ticketDash">Ticket Dashboard</a>
+          <a class="nav-link" href="/createForm">Create Ticket</a>
         </li>
-<!--         
+        <li class="nav-item">
+          <a class="nav-link" href="/">Log Out</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!--         
         <li class="nav-item active">
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
@@ -59,11 +64,9 @@
         <li class="nav-item">
           <a class="nav-link disabled" href="#">Disabled</a>
         </li> -->
-      </ul>
-    </div>
-  </nav>
 
-  <div id="mainWrapper" class="wrap col-12">
+
+  <div id="main-wrapper" class="wrap col-12">
     <!----Charts & Graphs --->
     <div id="charts" class="container-fluid justify-content-center col-11">
       <div class="row">
@@ -92,71 +95,74 @@
       </div>
     </div>
     <!---- Ticket Display --->
-    <div id="ticketDisplay" class="container-fluid">
-        <!-- <div class=""> -->
-            <button id="createTicketButton">Create Ticket</button>
-        <!-- </div> -->
+    <div id="ticketDisplay" class="container-fluid"></div>
+    <!-- <div class=""> -->
       
-      <!-- <button id="edit">Edit Ticket</button> -->
-      <div class="row">
-        <div class="col-11 container-fluid justify-content-center">
-          <!----- Heading ----->
-          <table id="ticket-table">
-            <tr>
-              <th>ID#</th>
-              <th>TITLE</th>
-              <th>CREATED BY</th>
-              <th>DATE CREATED</th>
-              <th>DATE DUE</th>
-              <th>ASSIGNED TO</th>
-              <th></th>
-            </tr>
+        <ul>
+          <li class="nav-item-button">
+            <a class="nav-link" href="/createForm">Create Ticket</a>
+          </li>
+        </ul>
+      
+    <!-- </div> -->
 
-            <!-- ticket loop -->
-            <% for(var i = 0; i < tickets.length; i++) {%>
-                <tr>
-                  <!-- Output details from the iterated quote object -->
-                    <td><%= i+1 %></td>
-                    <td><%= tickets[i].ticketTitle %></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <btn class="btn btn-danger">Edit</btn>
-                        <btn class="btn btn-danger">Delete</btn>
-                    </td>
-                </tr>
-            <% } %>
-            <!-- end ticket loop -->
-            <tr>
-              <td class="td">10001</td>
-              <td>Tom</td>
-              <td>M</td>
-              <td>30</td>
-              <td>M</td>
-              <td>30</td>
+    <!-- <button id="edit">Edit Ticket</button> -->
+    <div class="row">
+      <div class="col-11 container-fluid justify-content-center">
+        <!----- Heading ----->
+        <table id="ticket-table">
+          <tr>
+            <th>ID#</th>
+            <th>TITLE</th>
+            <th>CREATED BY</th>
+            <th>DATE CREATED</th>
+            <th>DATE DUE</th>
+            <th>ASSIGNED TO</th>
+            <th></th>
+          </tr>
+          <!----Tickets------>
+          <!-- ticket loop maybe -->
+          <% for(var i=0; i < tickets.length; i++) {%>
+            <tr class="hvr-grow-shadow">
+              <!-- Output name from the iterated quote object -->
               <td>
-                <btn class="btn btn-danger">Edit</btn>
-                <btn class="btn btn-danger">Delete</btn>
+                <%= tickets[i]._id %>
+              </td>
+              <td>
+                <%= tickets[i].ticketTitle %>
+              </td>
+              <!-- Output quote from the iterated quote object -->
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>
+                <btn id="edit" class="btn btn-outline-info">Edit</btn>
+                <btn id="delete" class="btn btn-outline-danger">Delete</btn>
               </td>
             </tr>
-          </table>
-        </div>
+            <% } %>
+              <!-- end ticket loop -->
+              
+        </table>
+
       </div>
     </div>
   </div>
-  <footer class="col-12 container-fluid justify-content-center">
-    <p>
-      Copyright &copy;
-      <script>
-        document.write(new Date().getFullYear());
-      </script>
-      - All Rights Reserved
-    </p>
+  </div>
+  <script src="main.js"></script>
+  <footer class="footer col-12 container-fluid justify-content-center">
+    <div class="container">
+      <p>
+        Copyright &copy;
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        - All Rights Reserved
+      </p>
+    </div>
   </footer>
-  
-  <script src="assets/javascript/main.js"></script>
+
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
