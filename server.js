@@ -82,15 +82,12 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
     // ========================================================================
 
     app.get('/tickets/:id', function (req, res,html) {
-        // console.log(req.params.id);
         db.collection('tickets').find({ _id: ObjectID(req.params.id) }).toArray()
         .then(results => {
             console.log(results);
-            // res.sendFile(path.join(__dirname + '/public/html/ticketDetails.html'));
             res.render('ticketDetails.ejs', { tickets: results })
         })
         .catch(error => console.error(error))
-        // res.sendFile(path.join(__dirname + '/public/html/ticketDetails.html'));
     });
     
 
