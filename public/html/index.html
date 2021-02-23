@@ -14,11 +14,11 @@
     <!-- google fonts -->
 </head>
 <body id="index-body">
-    <nav>nav stuff</nav>
-    <main id="index-main" >
+    <!-- <nav>nav stuff</nav> --->
+    <!-- <main id="index-main" > -->
         <!-- <a href="/createForm">create form</a>
         <a href="/ticketDash">ticket dashboard</a> -->
-        <div class="container">
+        <div id="main-wrapper" class="wrap col-8 col-xl-7">
             <div class="card login-card">
               <div class="row no-gutters">
                 <div class="col-md-5">
@@ -27,9 +27,10 @@
                 <div class="col-md-7">
                   <div class="card-body">
                     <div class="brand-wrapper">
+                      <img id="logo-login" alt="dbuggr logo" src="assets/images/logo_transparent-CROPPED.png">
                       <!-- <img src="assets/images/logo.svg" alt="logo" class="logo"> -->
                     </div>
-                    <p class="login-card-description">(htmlfile copy)Sign into your account</p>
+                    <p class="login-card-description">Sign into your account</p>
                     
                     <form action="#!">
                         <div class="form-group">
@@ -52,9 +53,20 @@
                 </div>
               </div>
             </div>
-            
+       </div>     
         
-    </main>
+   <!--  </main> -->
+    <footer class="footer col-12 container-fluid justify-content-center">
+      <div class="container">
+      <p>
+        Copyright &copy;
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        - All Rights Reserved
+      </p>
+    </div>
+    </footer>
     
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
