@@ -125,24 +125,27 @@
 
           <!-- ticket loop  -->
             <% for(var i=0; i < tickets.length; i++) {%>
-              <tr class="hvr-grow-shadow">
-                <!-- Output name from the iterated quote object -->
-                <td>
-                  <%= tickets[i]._id %>
-                </td>
-                <td>
-                  <%= tickets[i].ticketTitle %>
-                </td>
-                <!-- Output quote from the iterated quote object -->
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                  <btn id="edit" class="btn btn-outline-info">Edit</btn>
-                  <btn id="delete" class="btn btn-outline-danger">Delete</btn>
-                </td>
-              </tr>
+              
+                <tr class="hvr-grow-shadow">
+                  <!-- Output name from the iterated quote object -->
+                  <td>
+                    <%= tickets[i]._id %>
+                  </td>
+                  <td>
+                    <%= tickets[i].ticketTitle %>
+                  </td>
+                  <!-- Output quote from the iterated quote object -->
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <a href="/tickets/<%= tickets[i]._id %>">
+                      <btn id="edit" class="btn btn-outline-info">Details</btn>
+                    </a>
+                    <!-- <btn id="delete" class="btn btn-outline-danger">Delete</btn> -->
+                  </td>
+                </tr>
               <% } %>
           <!-- end ticket loop -->
               
