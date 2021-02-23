@@ -116,13 +116,14 @@
             <% for(var i = 0; i < tickets.length; i++) {%>
                 <tr>
                   <!-- Output details from the iterated quote object -->
-                    <td><%= i+1 %></td>
+                    <td><%= tickets[i]._id %></td>
                     <td><%= tickets[i].ticketTitle %></td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td>
+                      <a href="/tickets/<%= tickets[i]._id %>">edit</a>
                         <btn class="btn btn-danger">Edit</btn>
                         <btn class="btn btn-danger">Delete</btn>
                     </td>

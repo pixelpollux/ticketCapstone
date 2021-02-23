@@ -4,6 +4,7 @@ const MongoClient = require('mongodb').MongoClient;
 const app = express();
 const path = require('path');
 const router = express.Router();
+const ObjectID = require('mongodb').ObjectID;
 
 //not sure if need
 const { response } = require('express');
@@ -74,6 +75,34 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
     app.get('/createForm', function (req, res,html) {
         res.sendFile(path.join(__dirname + '/public/html/createForm.html'));
     });
+
+    // ========================================================================
+    // ticket details page
+    // ========================================================================
+
+    app.get('/tickets/:id', function (req, res,html) {
+        // console.log(req.params.id);
+        db.collection('tickets').find({ _id: ObjectID(req.params.id) }).toArray()
+        .then(results => {
+            console.log(results);
+            // res.sendFile(path.join(__dirname + '/public/html/ticketDetails.html'));
+            res.render('ticketDetails.ejs', { tickets: results })
+        })
+        .catch(error => console.error(error))
+        // res.sendFile(path.join(__dirname + '/public/html/ticketDetails.html'));
+    });
+    
+
+        // router.delete('/tickets', (req, res) => {​​​​​​​​
+        //     ticketsCollection.deleteOne({​​​​​​​​ _id: ObjectID(req.body.id)}​​​​​​​​)
+        //     .then(results=> {​​​​​​​​
+        //     res.redirect('/');
+        //     }​​​​​​​​)
+        //     .catch(error=>console.error(error))
+        // }​​​​​​​​)
+
+
+
   })
 
 
