@@ -60,7 +60,9 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
 
     //auth0 authentication
     app.get('/', (req, res) => {
-        if (res.send(req.oidc.isAuthenticated())){
+        // console.log(req.oidc.isAuthenticated());
+        if (req.oidc.isAuthenticated()){
+            console.log('logged in')
             res.redirect('/tickets');
             // app.get('/tickets', (req, res) => {
             //     db.collection('tickets').find().toArray()
@@ -70,7 +72,8 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
             //     .catch(error => console.error(error))
             // });
         } else {
-            'Logged out'
+            //make a sick logout page
+            console.log('Logged out')
         };
         // res.sendFile(path.join(__dirname + '/public/html/index.html'));
     })
