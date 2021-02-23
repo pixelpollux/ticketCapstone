@@ -5,14 +5,34 @@ const app = express();
 const ObjectID = require('mongodb').ObjectID;
 const path = require('path');
 const router = express.Router();
-// const ObjectID = require('mongodb').ObjectID;
 
 //not sure if need
 const { response } = require('express');
 
 
+// ========================================================================
+//auth0
+// ========================================================================
 
+const { auth } = require('express-openid-connect');
+const { requiresAuth } = require('express-openid-connect');
 
+const config = {
+  authRequired: false,
+  auth0Logout: true,
+  secret: 'a long, randomly-generated string stored in env',
+  baseURL: 'http://localhost:9990',
+  clientID: 'VqX5PxoT4S6pBQg2ehZGtrjcMrxTDOuY',
+  issuerBaseURL: 'https://dev-kk-ig869.us.auth0.com'
+};
+
+// auth router attaches /login, /logout, and /callback routes to the baseURL
+app.use(auth(config));
+
+//creates profile after login
+app.get('/profile', requiresAuth(), (req, res) => {
+  res.send(JSON.stringify(req.oidc.user));
+});
 
 // ========================================================================
 //mongo
@@ -34,14 +54,20 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
     app.set('view engine', 'ejs')
 
 
-
     // ========================================================================
     // index
     // ========================================================================
 
     //renders html static file, need to make it not absolute path somehow
     app.get('/', (req, res) => {
-        res.sendFile(path.join(__dirname + '/public/html/index.html'));
+        res.send(req.oidc.isAuthenticated() ? (    app.get('/tickets', (req, res) => {
+            db.collection('tickets').find().toArray()
+            .then(results => {
+                res.render('tickets.ejs', { tickets: results })
+            })
+            .catch(error => console.error(error))
+        })) : 'Logged out');
+        // res.sendFile(path.join(__dirname + '/public/html/index.html'));
     })
 
     // ========================================================================
