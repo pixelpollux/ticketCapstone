@@ -1,0 +1,2 @@
+# ignore these files
+$ echo node_modules >> .gitignore $ git rm --cached node_modules rm 'node_modules' $ git commit -m "Start ignoring node_modules" 
