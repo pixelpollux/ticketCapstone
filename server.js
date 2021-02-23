@@ -61,13 +61,14 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
     //auth0 authentication
     app.get('/', (req, res) => {
         if (res.send(req.oidc.isAuthenticated())){
-            app.get('/tickets', (req, res) => {
-                db.collection('tickets').find().toArray()
-                .then(results => {
-                    res.render('tickets.ejs', { tickets: results })
-                })
-                .catch(error => console.error(error))
-            });
+            res.redirect('/tickets');
+            // app.get('/tickets', (req, res) => {
+            //     db.collection('tickets').find().toArray()
+            //     .then(results => {
+            //         res.render('tickets.ejs', { tickets: results })
+            //     })
+            //     .catch(error => console.error(error))
+            // });
         } else {
             'Logged out'
         };
@@ -79,13 +80,13 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
     // ========================================================================
 
     //renders tickets to ticket page
-    // app.get('/tickets', (req, res) => {
-    //     db.collection('tickets').find().toArray()
-    //     .then(results => {
-    //         res.render('tickets.ejs', { tickets: results })
-    //     })
-    //     .catch(error => console.error(error))
-    // })
+    app.get('/tickets', (req, res) => {
+        db.collection('tickets').find().toArray()
+        .then(results => {
+            res.render('tickets.ejs', { tickets: results })
+        })
+        .catch(error => console.error(error))
+    })
 
     //creates tickets and sends to database
     app.post('/tickets', (req, res) => {
