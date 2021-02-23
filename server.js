@@ -58,9 +58,19 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
     // index
     // ========================================================================
 
-    //renders html static file, need to make it not absolute path somehow
+    //auth0 authentication
     app.get('/', (req, res) => {
-        res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
+        if (res.send(req.oidc.isAuthenticated())){
+            app.get('/tickets', (req, res) => {
+                db.collection('tickets').find().toArray()
+                .then(results => {
+                    res.render('tickets.ejs', { tickets: results })
+                })
+                .catch(error => console.error(error))
+            });
+        } else {
+            'Logged out'
+        };
         // res.sendFile(path.join(__dirname + '/public/html/index.html'));
     })
 
@@ -69,13 +79,13 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
     // ========================================================================
 
     //renders tickets to ticket page
-    app.get('/tickets', (req, res) => {
-        db.collection('tickets').find().toArray()
-        .then(results => {
-            res.render('tickets.ejs', { tickets: results })
-        })
-        .catch(error => console.error(error))
-    })
+    // app.get('/tickets', (req, res) => {
+    //     db.collection('tickets').find().toArray()
+    //     .then(results => {
+    //         res.render('tickets.ejs', { tickets: results })
+    //     })
+    //     .catch(error => console.error(error))
+    // })
 
     //creates tickets and sends to database
     app.post('/tickets', (req, res) => {
