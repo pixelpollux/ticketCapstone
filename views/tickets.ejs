@@ -18,7 +18,7 @@
 <body>
   <!-----NavBar---->
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <a class="navbar-brand" href="/">
       <img alt="dbuggr logo" src="assets/images/logo_transparent-CROPPED.png">
     </a>
@@ -41,53 +41,22 @@
       </ul>
     </div>
   </nav>
-  <!--         
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Dropdown
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li> -->
-
-
+  
   <div id="main-wrapper" class="wrap col-12">
+    
     <!----Charts & Graphs --->
     <div id="charts" class="container-fluid justify-content-center col-11">
       <div class="row">
-        <div id="graph1" class="col-sm-4">
+        <div id="graph1" class="col-12 col-lg-4">
           <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Chart 1</h5>
-              <p class="card-text">
-                With supporting text below as a natural lead-in to additional
-                content.
-              </p>
-            </div>
+            <img class="img-responsive my-auto" alt="Bar Graph" src="assets/images/basic_chart.png">
+           
           </div>
         </div>
-        <div id="graph2" class="col-sm-4">
+        <div id="graph2" class="col-12 col-lg-4">
           <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Chart 2</h5>
-              <p class="card-text">
-                With supporting text below as a natural lead-in to additional
-                content.
-              </p>
+            <img class="img-responsive my-auto" alt="Pie Chart" src="assets/images/pie_chart.svg">
+            
             </div>
           </div>
         </div>
@@ -125,7 +94,6 @@
 
           <!-- ticket loop  -->
             <% for(var i=0; i < tickets.length; i++) {%>
-              
                 <tr class="hvr-grow-shadow">
                   <!-- Output name from the iterated quote object -->
                   <td>
