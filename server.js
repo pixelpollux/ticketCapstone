@@ -47,7 +47,7 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
     // ========================================================================
     //body parser
     // ========================================================================
-    app.use(bodyParser.urlencoded({ extended: true }));
+    app.use(bodyParser.json());
 
     //adds public folder for static files
     app.use(express.static('public'));
@@ -86,9 +86,11 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
 
     //creates tickets and sends to database
     app.post('/tickets', (req, res) => {
+        // console.log(ticketsCollection);
+        console.log(req.body);
         ticketsCollection.insertOne(req.body)
         .then(result => {
-            console.log(result)
+            // console.log(result)
             //sends back to ticket page
             res.redirect('/tickets');
         })
@@ -100,7 +102,7 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
     // create form page
     // ========================================================================
 
-    app.get('/createForm', function (req, res,html) {
+    app.get('/createForm', (req, res,html) => {
         res.sendFile(path.join(__dirname + '/public/html/createForm.html'));
     });
 
@@ -108,23 +110,47 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
     // ticket details page
     // ========================================================================
 
-    app.get('/tickets/:id', function (req, res,html) {
+    app.get('/tickets/:id', (req, res,html) => {
+        // console.log(req.params.id);
         db.collection('tickets').find({ _id: ObjectID(req.params.id) }).toArray()
         .then(results => {
             console.log(results);
             res.render('ticketDetails.ejs', { tickets: results })
         })
         .catch(error => console.error(error))
-    });
-    
+    });    
 
-        // router.delete('/tickets', (req, res) => {​​​​​​​​
-        //     ticketsCollection.deleteOne({​​​​​​​​ _id: ObjectID(req.body.id)}​​​​​​​​)
-        //     .then(results=> {​​​​​​​​
-        //     res.redirect('/');
-        //     }​​​​​​​​)
-        //     .catch(error=>console.error(error))
-        // }​​​​​​​​)
+    //edit ticket
+    app.put('/tickets', (req, res) => {
+        // create a filter for a movie to update
+        const filter= { _id: ObjectID(req.body.id)};
+        // this option instructs the method to create a document if no documents match the filter
+        const options= { upsert: false };
+        // create a document that sets the plot of the movie
+        const updateDoc= {
+        $set: {
+            ticketTitle: req.body.ticketTitle,
+        },
+        };
+         ticketsCollection.updateOne(filter, updateDoc, options)
+         .then(results=> {
+        res.redirect('/tickets');
+         })
+         .catch(error=>console.error(error))
+        });
+
+    //delete ticket
+    app.delete('/tickets', (req,res) => {
+        console.log("delete works");
+        db.collection('tickets').deleteOne({_id: ObjectID(req.body.id)})
+        .then(results => {
+            console.log("ticket deleted");
+            res.redirect('/tickets');
+        })
+        .catch(error=>console.error(error))
+    });
+
+
 
 
 
