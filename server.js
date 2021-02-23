@@ -60,13 +60,7 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
 
     //renders html static file, need to make it not absolute path somehow
     app.get('/', (req, res) => {
-        res.send(req.oidc.isAuthenticated() ? (    app.get('/tickets', (req, res) => {
-            db.collection('tickets').find().toArray()
-            .then(results => {
-                res.render('tickets.ejs', { tickets: results })
-            })
-            .catch(error => console.error(error))
-        })) : 'Logged out');
+        res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
         // res.sendFile(path.join(__dirname + '/public/html/index.html'));
     })
 
