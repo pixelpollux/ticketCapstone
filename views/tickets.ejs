@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <title>dbuggr</title>
+</head>
+
+<body>
+  <!-----NavBar---->
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="/">
+      <img alt="dbuggr logo" src="assets/images/logo_transparent-CROPPED.png">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="tabrow navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/tickets">Ticket Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/createForm">Create Ticket</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Log Out</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  
+  <div id="main-wrapper" class="wrap col-12">
+    
+    <!----Charts & Graphs --->
+    <div id="charts" class="container-fluid justify-content-center col-11">
+      <div class="row h-100">
+        <div id="graph1" class="col-12 col-lg-4">
+          <div class="card">
+            <img class="img-responsive my-auto" alt="Bar Graph" src="assets/images/basic_chart.png">
+           
+          </div>
+        </div>
+        <div id="graph2" class="col-12 col-lg-4">
+          <div class="card">
+            <img class="img-responsive my-auto" alt="Pie Chart" src="assets/images/pie_chart.png">
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!---- Ticket Display --->
+    <div id="ticketDisplay" class="container-fluid"></div>
+    <!-- <div class=""> -->
+      
+        <!-- <ul>
+          <li class="nav-item-button">
+            <a class="nav-link" href="/createForm">Create Ticket</a>
+          </li>
+        </ul> -->
+      
+    <!-- </div> -->
+
+    <!-- <button id="edit">Edit Ticket</button> -->
+    <div class="row">
+      <div class="col-11 container-fluid justify-content-center">
+
+        <a class="col-3 col-md-2 ml-4 nav-item-button nav-link" href="/createForm">Create Ticket</a>
+
+        <!-- --- Heading --- -->
+        <table id="ticket-table">
+          <tr>
+            <th>ID#</th>
+            <th>TITLE</th>
+            <th>CREATED BY</th>
+            <th>DATE CREATED</th>
+            <th>DATE DUE</th>
+            <th>ASSIGNED TO</th>
+            <th></th>
+          </tr>
+
+          <!-- ticket details  -->
+            <% for(var i=0; i < tickets.length; i++) {%>
+                <tr class="hvr-grow-shadow">
+                  <!-- Output name from the iterated quote object -->
+                  <td>
+                    <%= tickets[i]._id %>
+                  </td>
+                  <td>
+                    <%= tickets[i].ticketTitle %>
+                  </td>
+                  <!-- Output quote from the iterated quote object -->
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <a href="/tickets/<%= tickets[i]._id %>">
+                      <btn id="edit" class="btn btn-outline-info">Details</btn>
+                    </a>
+                    <!-- <btn id="delete" class="btn btn-outline-danger">Delete</btn> -->
+                  </td>
+                </tr>
+              <% } %>
+          <!-- end ticket loop -->
+              
+        </table>
+
+      </div>
+    </div>
+  </div>
+  </div>
+  <script src="main.js"></script>
+  <footer class="footer col-12 container-fluid justify-content-center">
+    <div class="container">
+      <p>
+        Copyright &copy;
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        - All Rights Reserved
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

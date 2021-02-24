@@ -1,0 +1,479 @@
+body {
+  font-family: "Karla", sans-serif;
+  background-image: url("../images/bugs_bg_transparent.png");
+  background-color: #eee;
+  /*min-height: 100vh;*/
+}
+
+/* =========================================================================================== */
+/* navbar styles */
+/* =========================================================================================== */
+/* #logo {
+height: 150px;
+padding-left: 160px;
+} */
+
+.navbar-light {
+  background-color: rgb(208, 208, 208);
+  border-bottom: 3px solid #e2024a;
+}
+
+.navbar-brand {
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+}
+
+.navbar-brand img {
+  max-height: 2.5rem;
+  /* padding-left: 70px; */
+}
+
+.navbar-nav {
+/* margin-right: 70px; */
+/* font-size: 1.2rem; */
+color: #2d2d2d;
+margin-bottom: -49px;
+}
+
+.tabrow li {
+  /* padding: .25rem; */
+  margin: 0 .25rem 1.5rem .25rem;
+  position: static;
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem;
+  border: 2px none #e2024a;
+}
+
+.tabrow li:hover {
+  border: 2px solid #e2024a;
+  background: #dfdfdf;
+  display: inline-block;
+  /* border-bottom-color: #dfdfdf; */
+  color: #fff;
+  /* margin: 0 10px;
+  padding: 0 10px;
+  padding-top: 10px; */
+  background: #eee;
+  /* display: inline-block; */
+  border-bottom-color: #eee;
+
+}
+
+.tabrow li.active {
+  border: 2px solid #e2024a;
+  background: #e2024a;
+  color: white !important;
+}
+
+@media (max-width: 1000px) {
+  .tabrow li {
+    border-radius: 0px;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: center;
+    background-color: white;
+    border: 1px solid gray;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  .tabrow li:hover {
+    border: 3px solid #e2024a;
+    font-size: 1.25rem;
+  }
+}
+
+
+
+/* Creating Selected Tab Effect */
+
+/* tabrow {
+  text-align: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline */
+  /* line-height: 24px; */
+/* } */
+
+
+
+/*.tabrow:after {
+  position: absolute;
+ /* content: ""; 
+  width: 100%;
+  bottom: -10px;
+  left: 0;
+  border-bottom: 25px solid #e2024a;
+  z-index: 1;
+} */
+
+/* .tabrow li:before {
+  left: -6px;
+  border-bottom-right-radius: 6px;
+  border-width: 0 1px 1px 0;
+  box-shadow: 2px 2px 0 #e2024a;
+} */
+
+/* .tabrow li:after {
+  right: -6px;
+  border-bottom-left-radius: 6px;
+  border-width: 0 0 1px 1px;
+  box-shadow: -2px 2px 0 #e2024a;
+} */
+
+/* .tabrow li:after, .tabrow li:before {
+  position: absolute;
+  bottom: -1px;
+  width: 6px;
+  height: 6px;
+  content: " ";
+  border: 3px solid #e2024a;
+} */
+
+
+/* =========================================================================================== */
+/* index styles */
+/* =========================================================================================== */
+
+#index-body {
+  margin: 0 auto;
+}
+
+#login-image {
+    max-width: 100%;
+}
+
+#logo-login {
+  height: 60px;
+  padding-left: 20px;
+}
+
+.brand-wrapper {
+  margin-bottom: 19px;
+}
+
+.brand-wrapper .logo {
+  height: 37px;
+}
+
+.login-card {
+  margin-top: 19vh;
+  border: 0;
+  border-radius: 27.5px;
+  box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43);
+  overflow: hidden;
+}
+
+.login-card-img {
+  border-radius: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.login-card .card-body {
+  padding: 85px 60px 60px;
+}
+
+@media (max-width: 422px) {
+  .login-card .card-body {
+    padding: 35px 24px;
+  }
+}
+
+.login-card-description {
+  font-size: 2rem;
+  color: #2d2d2d;
+  font-weight: normal;
+  max-width: 80%;
+  margin-bottom: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.login-card form {
+  margin: 0 auto;
+  max-width: 80%;
+}
+.login-card .form-control {
+  border: 1px solid #d5dae2;
+  padding: 15px 25px;
+  margin-bottom: 20px;
+  min-height: 45px;
+  font-size: 1rem;
+  line-height: 15;
+  font-weight: normal;
+}
+.login-card .form-control::-webkit-input-placeholder {
+  color: #919aa3;
+}
+.login-card .form-control::-moz-placeholder {
+  color: #919aa3;
+}
+.login-card .form-control:-ms-input-placeholder {
+  color: #919aa3;
+}
+.login-card .form-control::-ms-input-placeholder {
+  color: #919aa3;
+}
+.login-card .form-control::placeholder {
+  color: #919aa3;
+}
+.login-card .login-btn {
+  padding: 13px 20px 12px;
+  background-color: #2d2d2d;
+  border-radius: 4px;
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 20px;
+  color: #fff;
+  margin-bottom: 24px;
+  box-shadow: 0 10px 30px 0 rgba(168, 168, 172, 0.43);
+}
+.login-card .login-btn:hover {
+  border: 1px solid #2d2d2d;
+  background-color: transparent;
+  color: #2d2d2d;
+}
+.login-card .forgot-password-link {
+  font-size: 14px;
+  color: #919aa3;
+  margin-bottom: 12px;
+}
+.login-card-footer-text {
+  font-size: 16px;
+  color: #0d2366;
+  margin-bottom: 60px;
+}
+@media (max-width: 767px) {
+  .login-card-footer-text {
+    margin-bottom: 24px;
+  }
+}
+.login-card-footer-nav a {
+  font-size: 14px;
+  color: #919aa3;
+}
+
+/*# sourceMappingURL=login.css.map */
+
+#index-main {
+  color: #6d6d6d;
+  background-color: #f6f7fb;
+}
+
+
+/* =========================================================================================== */
+/* dashboard styles */
+/* =========================================================================================== */
+
+/* Graphs */
+  #charts {
+    margin-top: 10%;
+    margin-bottom: 5%;
+  }
+
+  #graph1 .card img, #graph2 .card img {
+    height: 100%;
+  }
+
+  #graph1 .card {
+    margin-bottom: 8%;
+  }
+
+  @media (max-width: 990px) {
+    #charts {
+      width: 70%;
+      margin-bottom: 24px;
+      padding: 30px;
+    }
+  }
+
+
+.nav-item-button {
+background-color: #e2024a;
+padding: 8px 15px;
+border-radius: 6px 6px 0 0;
+color: white;
+list-style: none;
+/* position: absolute; */
+font-size: 1.1rem;
+/* top: 470px;
+right: 110px; */
+font-weight: bold;
+text-align: center;
+}
+
+.nav-item-button a {
+  color: white;
+}
+
+.nav-item-button:hover {
+  background-color: #961919;
+  /*border: 4px solid #e2024a;*/
+  color: #cacaca;
+}
+
+#ticketDisplay {
+z-index: 3;
+}
+
+table {
+  margin-top: 90px;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+
+th {
+  background-color: lightblue;
+  color: rgb(74, 78, 82);
+  font-weight: bold;
+  /* border: 1px solid rgb(228, 228, 228); */
+}
+
+th,
+td {
+  width: 500px;
+  text-align: center;
+  padding: 5px;
+  height: 70px;
+  border-radius: 2px;
+}
+
+tr {
+  box-shadow: 0 10px 30px 0 rgba(207, 207, 209, 0.43);
+}
+
+td {
+  background-color: white;
+}
+table { 
+  border-collapse: separate; 
+  border-spacing: 0 10px; 
+  margin-top: -10px; /* correct offset on first border spacing if desired */
+}
+th:first-child, td:first-child {
+  border-top-left-radius: 10px; 
+  border-bottom-left-radius: 10px;
+}
+th:last-child, td:last-child {
+  border-bottom-right-radius: 10px; 
+  border-top-right-radius: 10px; 
+}
+
+
+/* Tickets - Hover Effect - Grow Shadow */
+.hvr-grow-shadow {
+-webkit-transform: perspective(1px) translateZ(0);
+transform: perspective(1px) translateZ(0);
+box-shadow: 0 0 1px transparent;
+-webkit-transition-duration: 0.3s;
+transition-duration: 0.3s;
+-webkit-transition-property: box-shadow, transform;
+transition-property: box-shadow, transform;
+}
+.hvr-grow-shadow:hover, .hvr-grow-shadow:focus, .hvr-grow-shadow:active {
+box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+-webkit-transform: scale(1.1);
+transform: scale(1.03);
+}
+
+
+/* =========================================================================================== */
+/* lightbox styling */
+/* =========================================================================================== */
+
+
+
+
+
+
+
+/* =========================================================================================== */
+/* Create Ticket page - form styles */
+/* =========================================================================================== */  
+#main-wrapper {
+margin: 0 auto;
+}
+
+.btn-outline-dark {
+background-color: #a8bbf3;
+background-color: lightblue;
+padding: 10px 15px;
+border-radius: 6px;
+font-weight:900;
+margin-bottom: 4rem;
+margin-left: 2rem;
+box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43);
+}
+.btn-outline-dark:hover {
+  background-color: rgb(56, 125, 148);
+  color: white;
+/* border: 1px solid #2d2d2d;
+background-color: transparent;
+color: #2d2d2d; */
+}
+
+/* =========================================================================================== */
+/* Ticket Details page */
+/* =========================================================================================== */  
+#main-wrapper-ticket-details {
+ margin-top: 0;
+}
+
+#ticket-info {
+  margin: 160px auto 0;
+}
+
+#ticket-info .card-body {
+  height: 300px;
+  border-radius: 6px;
+  box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43);
+}
+
+#edit, #delete {
+   padding: 10px 90px;
+}
+
+
+/* =========================================================================================== */
+/* sticky footer */
+/* =========================================================================================== */  
+
+html {
+position: relative;
+min-height: 100vh;
+}
+
+body {
+margin-bottom: 100px; /* Margin bottom by footer height */
+}
+
+.footer {
+position: absolute;
+bottom: 0;
+width: 100%;
+height: 80px; /* Set the fixed height of the footer here */
+line-height: 60px; /* Vertically center the text there */
+background-color: #eee;
+z-index: -1;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+.container {
+width: auto;
+text-align: center;
+/*padding: 0 15px;*/
+
+/*margin-top: 40px;*/
+}
+
+.navbar-light, .navbar-nav, .active>.nav-link {
+  color: #ffffff;
+
+}
