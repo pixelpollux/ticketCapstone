@@ -65,6 +65,25 @@ margin-bottom: -49px;
   color: white !important;
 }
 
+@media (max-width: 1000px) {
+  .tabrow li {
+    border-radius: 0px;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: center;
+    background-color: white;
+    border: 1px solid gray;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  .tabrow li:hover {
+    border: 3px solid #e2024a;
+    font-size: 1.25rem;
+  }
+}
+
+
+
 /* Creating Selected Tab Effect */
 
 /* tabrow {
@@ -111,18 +130,6 @@ margin-bottom: -49px;
   border: 3px solid #e2024a;
 } */
 
-/* =========================================================================================== */
-/* Graphs */
-/* =========================================================================================== */
-#graph1 .card, #graph2 .card {
-height: 300px;
-margin: 120px 0 90px;
-padding: 0 30px; 
-border-radius: 6px;
-z-index: -3;
-}
-
-
 
 /* =========================================================================================== */
 /* index styles */
@@ -150,7 +157,7 @@ z-index: -3;
 }
 
 .login-card {
-  margin-top: 20%;
+  margin-top: 19vh;
   border: 0;
   border-radius: 27.5px;
   box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43);
@@ -175,6 +182,7 @@ z-index: -3;
     padding: 35px 24px;
   }
 }
+
 .login-card-description {
   font-size: 2rem;
   color: #2d2d2d;
@@ -261,16 +269,27 @@ z-index: -3;
 /* =========================================================================================== */
 
 /* Graphs */
-#graph1 .card, #graph2 .card {
-  max-height: 400px;
-  margin: 250px 0 90px;
-  padding: 10px 15px; 
-  border-radius: 6px;
+  #charts {
+    margin-top: 10%;
+    margin-bottom: 5%;
   }
-  
+
   #graph1 .card img, #graph2 .card img {
-    height: 300px;
+    height: 100%;
   }
+
+  #graph1 .card {
+    margin-bottom: 8%;
+  }
+
+  @media (max-width: 990px) {
+    #charts {
+      width: 70%;
+      margin-bottom: 24px;
+      padding: 30px;
+    }
+  }
+
 
 .nav-item-button {
 background-color: #e2024a;
@@ -283,6 +302,7 @@ font-size: 1.1rem;
 /* top: 470px;
 right: 110px; */
 font-weight: bold;
+text-align: center;
 }
 
 .nav-item-button a {
@@ -290,9 +310,9 @@ font-weight: bold;
 }
 
 .nav-item-button:hover {
-  background-color: rgb(102, 102, 102);
+  background-color: #961919;
   /*border: 4px solid #e2024a;*/
-  color: #2d2d2d;
+  color: #cacaca;
 }
 
 #ticketDisplay {
@@ -398,6 +418,9 @@ color: #2d2d2d; */
 /* =========================================================================================== */
 /* Ticket Details page */
 /* =========================================================================================== */  
+#main-wrapper-ticket-details {
+ margin-top: 0;
+}
 
 #ticket-info {
   margin: 160px auto 0;
@@ -407,6 +430,10 @@ color: #2d2d2d; */
   height: 300px;
   border-radius: 6px;
   box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43);
+}
+
+#edit, #delete {
+   padding: 10px 90px;
 }
 
 
@@ -444,4 +471,9 @@ text-align: center;
 /*padding: 0 15px;*/
 
 /*margin-top: 40px;*/
+}
+
+.navbar-light, .navbar-nav, .active>.nav-link {
+  color: #ffffff;
+
 }
