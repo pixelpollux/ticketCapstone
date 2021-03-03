@@ -90,6 +90,7 @@
             <th>DATE DUE</th>
             <th>ASSIGNED TO</th>
             <th></th>
+            <th></th>
           </tr>
 
           <!-- ticket details  -->
@@ -111,6 +112,9 @@
                     <a href="/tickets/<%= tickets[i]._id %>">
                       <btn id="edit" class="btn btn-outline-info">Details</btn>
                     </a>
+                  </td>
+                  <td> 
+                    <btn id="delete" class="btn btn-danger"  onclick="deleteTicket('<%= tickets[i]._id %>')">X</btn>
                     <!-- <btn id="delete" class="btn btn-outline-danger">Delete</btn> -->
                   </td>
                 </tr>
@@ -123,7 +127,6 @@
     </div>
   </div>
   </div>
-  <script src="main.js"></script>
   <footer class="footer col-12 container-fluid justify-content-center">
     <div class="container">
       <p>
@@ -135,7 +138,7 @@
       </p>
     </div>
   </footer>
-
+  <script src="assets/javascript/main.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>

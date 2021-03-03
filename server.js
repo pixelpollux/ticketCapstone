@@ -112,7 +112,7 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
 
     app.get('/tickets/:id', (req, res,html) => {
         // console.log(req.params.id);
-        db.collection('tickets').find({ _id: ObjectID(req.params.id) }).toArray()
+        db.collection('tickets').find({ "_id": ObjectID(req.params.id) }).toArray()
         .then(results => {
             console.log(results);
             res.render('ticketDetails.ejs', { tickets: results })
@@ -141,11 +141,15 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
 
     //delete ticket
     app.delete('/tickets', (req,res) => {
-        console.log("delete works");
-        db.collection('tickets').deleteOne({_id: ObjectID(req.body.id)})
+        console.log(req.body._id);
+        db.collection('tickets').deleteOne({_id: ObjectID(req.body._id)})
         .then(results => {
+            if (results.deletedCount === 0) {
+                return res.json('No quote to delete')
+            }
+            res.json(`Deleted ticket`(req.body._id))
             console.log("ticket deleted");
-            res.redirect('/tickets');
+            // res.redirect('/tickets');
         })
         .catch(error=>console.error(error))
     });

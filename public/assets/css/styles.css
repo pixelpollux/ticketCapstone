@@ -348,6 +348,12 @@ tr {
 td {
   background-color: white;
 }
+
+th:nth-last-child(1), td:nth-last-child(1) {
+  width: 100px;
+  padding-right: 10px;
+}
+
 table { 
   border-collapse: separate; 
   border-spacing: 0 10px; 
@@ -433,7 +439,19 @@ color: #2d2d2d; */
 }
 
 #edit, #delete {
-   padding: 10px 90px;
+   padding: 7px 15px;
+}
+
+#edit {
+  float: right;
+}
+
+#delete {
+  background-color: #e2024a;
+}
+
+#delete:hover {
+  background-color: rgb(109, 1, 1);
 }
 
 
