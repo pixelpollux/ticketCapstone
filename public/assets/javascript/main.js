@@ -1,10 +1,10 @@
+const ticketTitle = document.getElementById("ticketTitle");
 // function textToInput(){
 // 	var txt = "Nick";
 // 	document.getElementById("my_field").value = txt;
 // }
 
 function deleteTicket(id) {
-    console.log("Main js working");
     fetch('/tickets', {
             method: 'delete',
             headers: { 'Content-Type': 'application/json' },
@@ -21,3 +21,33 @@ function deleteTicket(id) {
         })
         .catch(error => console.error(error))
 }
+
+function createTicket() {
+    fetch('/tickets', {
+        method: 'post',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            ticketTitle: ticketTitle.value
+        })
+    })
+    .then(response => {
+        window.open("/tickets");
+    })
+    .catch(error => console.error(error))    
+}
+
+/*
+function updateTicket() {
+    fetch('/tickets', {
+        method: 'put',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            ticketTitle: ticketTitle.value
+        })
+    })
+    .then(response => {
+        window.open("/tickets");
+    })
+    .catch(error => console.error(error))    
+}
+*/
