@@ -64,13 +64,13 @@
               </div>
               <p class="login-card-description">Create A New Ticket</p>
 
-              <form action="/tickets" method="POST">
+              <form onsubmit="return(false)">
                 <div class="form-group">
                   <label for="ticketTitle" class="sr-only">Ticket Title</label>
                   <input type="text" name="ticketTitle" id="ticketTitle" class="form-control"
                     placeholder="Ticket Title">
                 </div>
-                <button class="btn btn-block login-btn mb-4" id="ticketSubmit">Submit Ticket</button>
+                <button class="btn btn-block login-btn mb-4" id="ticketSubmit" onclick="createTicket()">Submit Ticket</button>
               </form>
             </div>
           </div>
