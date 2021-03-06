@@ -109,9 +109,10 @@
                   <td></td>
                   <td></td>
                   <td>
-                    <a href="/tickets/<%= tickets[i]._id %>">
-                      <btn id="edit" class="btn btn-outline-info">Details</btn>
-                    </a>
+                    
+                    <a href="/html/ticketEdit.html?tid=<%= tickets[i]._id%>&title=<%= tickets[i].ticketTitle %>">
+                    <btn id="edit" class="btn btn-outline-info">Edit</btn>
+                  </a>  
                   </td>
                   <td> 
                     <btn id="delete" class="btn btn-danger"  onclick="deleteTicket('<%= tickets[i]._id %>')">X</btn>

@@ -36,26 +36,31 @@ function createTicket() {
     .catch(error => console.error(error))    
 }
 
-function upd() {
+function doUpdate() {
+    let ticketId = document.getElementById("showId").innerHTML;
+    let ticketTitle = document.getElementById("ticketTitle").value;
     fetch('/tickets', {
             method: 'put',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                _id: idInputUpdate.value,
-                title: titleInputUpdate.value,
-                desc: descInputUpdate.value
+                id: ticketId,
+                ticketTitle: ticketTitle
             })
         })
-        .then(res => {
-            if (res.ok) {
-                //return res.json()
-            }
-        })
         .then(response => {
-            window.location.reload();
+            //window.open("/tickets");
+            window.open("/tickets");
+            
         })
+        .catch(error => console.error(error))  
 }
-
+function showUpdate(id,title) {
+        var inputPrompt = prompt("Ticket Title:", title);
+        if (inputPrompt == null || inputPrompt == "") {
+        } else {
+          //doUpdate(id,inputPrompt)
+        }
+}
 /*
 function updateTicket() {
     fetch('/tickets', {

@@ -62,22 +62,20 @@
               </div>
               <p class="login-card-description">Ticket Details</p>
             
-              <% for(var i=0; i < tickets.length; i++) {%>
                 <!-- Output details from the iterated quote object -->
                 <table>
                 
                   <tr>
                     <td>id: </td>
                     <td>
-                      <%= tickets[i]._id %>
+                      <p id="showId"></p>
                     </td>
                   </tr>
                   <tr>
                     <td>title: </td>
                     <td>
                       <label for="ticketTitle" class="sr-only">Ticket Title</label>
-                    <input type="text" name="ticketTitle" id="ticketTitle" class="form-control"
-                      placeholder="<%= tickets[i].ticketTitle %>">
+                    <input type="text" name="ticketTitle" id="ticketTitle" class="form-control">
                     </td>
                   </tr>
                   <tr>
@@ -85,11 +83,10 @@
                         <button id="cancel" class="btn btn-info"><a href="/tickets">Cancel</a></button>
                       </td>
                       <td>
-                        <button id="save" class="btn btn-danger" onclick="saveEdit()">Save Changes</button>
+                        <button id="save" class="btn btn-danger" onclick="doUpdate()">Save Changes</button>
                     </td>
                   </tr>
                 </table>
-                <% } %>
             </div>
           </div>
         </div>
@@ -108,7 +105,7 @@
       </p>
     </div>
   </footer>
-  <script src="main.js"></script>
+  <script src="/assets/javascript/main.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
@@ -118,6 +115,12 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+
+    <script>
+      var urlParams = new URLSearchParams(location.search);
+      document.getElementById("showId").innerHTML = urlParams.get('tid')
+      document.getElementById("ticketTitle").value = urlParams.get('title'); 
+    </script>
 </body>
 
 </html>
