@@ -150,7 +150,8 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
         };
          ticketsCollection.updateOne(filter, updateDoc, options)
          .then(results=> {
-        res.redirect('/tickets');
+        //res.redirect('/tickets');
+        res.json({"success": "true"})
          })
          .catch(error=>console.error(error))
         });
@@ -158,14 +159,10 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
     
         //delete ticket
     app.delete('/tickets', (req,res) => {
-        console.log(req.body._id);
         db.collection('tickets').deleteOne({_id: ObjectID(req.body._id)})
         .then(results => {
-            if (results.deletedCount === 0) {
-                return res.json('No quote to delete')
-            }
-            res.json(`Deleted ticket`(req.body._id))
-            console.log("ticket deleted");
+            console.log(results)
+            res.json({"success": "true"})
             // res.redirect('/tickets');
         })
         .catch(error=>console.error(error))
@@ -182,8 +179,8 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
 // ========================
 // Listen
 // ========================
-const port = 9990
-app.use('/', router);
+const port = process.env.PORT || 3009
+//app.use('/', router);
 app.listen(port, function(){
     console.log(`listening on port ${port}`)
 })

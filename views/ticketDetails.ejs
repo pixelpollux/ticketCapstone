@@ -62,32 +62,32 @@
               </div>
               <p class="login-card-description">Ticket Details</p>
             
-              <% for(var i=0; i < tickets.length; i++) {%>
                 <!-- Output details from the iterated quote object -->
                 <table>
                 
                   <tr>
                     <td>id: </td>
                     <td>
-                      <%= tickets[i]._id %>
+                      <%= tickets[0]._id %>
                     </td>
                   </tr>
                   <tr>
                     <td>title: </td>
                     <td>
-                      <%= tickets[i].ticketTitle %>
+                      <%= tickets[0].ticketTitle %>
                     </td>
                   </tr>
                   <tr>
                       <td>
-                        <button id="edit" class="btn btn-outline-info"><a href="/ticketEdit">Edit</a></button>
+                        <button 
+                        onclick="doUpdate('<%= tickets[0]._id %>')"
+                        id="edit" class="btn btn-outline-info"><a>Edit</a></button>
                       </td>
                       <td>
-                        <button id="delete" class="btn btn-danger" onclick="deleteTicket('<%= tickets[i]._id %>')">Delete</button>
+                        <button id="delete" class="btn btn-danger" onclick="deleteTicket('<%= tickets[0]._id %>')">Delete</button
                     </td>
                   </tr>
                 </table>
-                <% } %>
             </div>
           </div>
         </div>
