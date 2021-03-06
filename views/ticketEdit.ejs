@@ -75,15 +75,17 @@
                   <tr>
                     <td>title: </td>
                     <td>
-                      <%= tickets[i].ticketTitle %>
+                      <label for="ticketTitle" class="sr-only">Ticket Title</label>
+                    <input type="text" name="ticketTitle" id="ticketTitle" class="form-control"
+                      placeholder="<%= tickets[i].ticketTitle %>">
                     </td>
                   </tr>
                   <tr>
                       <td>
-                        <button id="edit" class="btn btn-outline-info"><a href="/ticketEdit">Edit</a></button>
+                        <button id="cancel" class="btn btn-info"><a href="/tickets">Cancel</a></button>
                       </td>
                       <td>
-                        <button id="delete" class="btn btn-danger" onclick="deleteTicket('<%= tickets[i]._id %>')">Delete</button>
+                        <button id="save" class="btn btn-danger" onclick="saveEdit()">Save Changes</button>
                     </td>
                   </tr>
                 </table>

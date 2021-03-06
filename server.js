@@ -9,6 +9,9 @@ const router = express.Router();
 //not sure if need
 const { response } = require('express');
 
+/*allows port to be set by Heroku
+let port = process.env.PORT || 9990;*/
+
 
 // ========================================================================
 //auth0
@@ -107,6 +110,20 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
     });
 
     // ========================================================================
+    // create edit ticket page
+    // ========================================================================
+
+    app.get('/ticketEdit', (req, res) => {
+        res.render('ticketEdit');
+    });
+
+    // app.get('/ticketEdit', (req, res) => {
+        // res.json({"success":"true"})
+    // })
+
+    
+
+    // ========================================================================
     // ticket details page
     // ========================================================================
 
@@ -138,7 +155,8 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
          .catch(error=>console.error(error))
         });
 
-    //delete ticket
+    
+        //delete ticket
     app.delete('/tickets', (req,res) => {
         console.log(req.body._id);
         db.collection('tickets').deleteOne({_id: ObjectID(req.body._id)})
@@ -152,9 +170,6 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
         })
         .catch(error=>console.error(error))
     });
-
-
-
 
 
   })
