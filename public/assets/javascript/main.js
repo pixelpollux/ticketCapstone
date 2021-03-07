@@ -36,6 +36,31 @@ function createTicket() {
     .catch(error => console.error(error))    
 }
 
+function doUpdate() {
+    let ticketId = document.getElementById("showId").innerHTML;
+    let ticketTitle = document.getElementById("ticketTitle").value;
+    fetch('/tickets', {
+            method: 'put',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                id: ticketId,
+                ticketTitle: ticketTitle
+            })
+        })
+        .then(response => {
+            //window.open("/tickets");
+            window.open("/tickets");
+            
+        })
+        .catch(error => console.error(error))  
+}
+function showUpdate(id,title) {
+        var inputPrompt = prompt("Ticket Title:", title);
+        if (inputPrompt == null || inputPrompt == "") {
+        } else {
+          //doUpdate(id,inputPrompt)
+        }
+}
 /*
 function updateTicket() {
     fetch('/tickets', {
