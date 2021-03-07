@@ -1,3 +1,4 @@
+const dotenv = require('dotenv');
 const express = require('express');
 const bodyParser= require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
@@ -5,6 +6,7 @@ const app = express();
 const ObjectID = require('mongodb').ObjectID;
 const path = require('path');
 const router = express.Router();
+dotenv.config();
 
 //not sure if need
 const { response } = require('express');
@@ -40,12 +42,12 @@ app.get('/profile', requiresAuth(), (req, res) => {
 // ========================================================================
 //mongo
 // ========================================================================
-MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.mongodb.net/<dbname>?retryWrites=true&w=majority', {
+MongoClient.connect(process.env.DB, {
     useUnifiedTopology: true}, (err, client) => {
     if (err) return console.error(err)
     console.log('Connected to Database')
     const db = client.db('ticket-tracker-db')
-    const ticketsCollection = db.collection('tickets')
+    const ticketsCollection = db.collection(process.env.COLLECTION)
 
     // ========================================================================
     //body parser
