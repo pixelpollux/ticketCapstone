@@ -1,3 +1,4 @@
+const dotenv = require('dotenv');
 const express = require('express');
 const bodyParser= require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
@@ -5,9 +6,13 @@ const app = express();
 const ObjectID = require('mongodb').ObjectID;
 const path = require('path');
 const router = express.Router();
+dotenv.config();
 
 //not sure if need
 const { response } = require('express');
+
+/*allows port to be set by Heroku
+let port = process.env.PORT || 9990;*/
 
 
 // ========================================================================
@@ -37,12 +42,12 @@ app.get('/profile', requiresAuth(), (req, res) => {
 // ========================================================================
 //mongo
 // ========================================================================
-MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.mongodb.net/<dbname>?retryWrites=true&w=majority', {
+MongoClient.connect(process.env.DB, {
     useUnifiedTopology: true}, (err, client) => {
     if (err) return console.error(err)
     console.log('Connected to Database')
     const db = client.db('ticket-tracker-db')
-    const ticketsCollection = db.collection('tickets')
+    const ticketsCollection = db.collection(process.env.COLLECTION)
 
     // ========================================================================
     //body parser
@@ -79,6 +84,7 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
     app.get('/tickets', (req, res) => {
         db.collection('tickets').find().toArray()
         .then(results => {
+            console.log(results)
             res.render('tickets.ejs', { tickets: results })
         })
         .catch(error => console.error(error))
@@ -87,7 +93,6 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
     //creates tickets and sends to database
     app.post('/tickets', (req, res) => {
         // console.log(ticketsCollection);
-        console.log(req.body);
         ticketsCollection.insertOne(req.body)
         .then(result => {
             // console.log(result)
@@ -107,14 +112,27 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
     });
 
     // ========================================================================
+    // create edit ticket page
+    // ========================================================================
+
+    app.get('/ticketEdit', (req, res) => {
+        res.render('ticketEdit');
+    });
+
+    // app.get('/ticketEdit', (req, res) => {
+        // res.json({"success":"true"})
+    // })
+
+    
+
+    // ========================================================================
     // ticket details page
     // ========================================================================
 
-    app.get('/tickets/:id', (req, res,html) => {
-        // console.log(req.params.id);
-        db.collection('tickets').find({ _id: ObjectID(req.params.id) }).toArray()
+    app.get('/tickets/:id', (req, res) => {
+        const ticketsId = req.params.id
+        db.collection('tickets').find({ '_id': ObjectID(ticketsId) }).toArray()
         .then(results => {
-            console.log(results);
             res.render('ticketDetails.ejs', { tickets: results })
         })
         .catch(error => console.error(error))
@@ -134,24 +152,23 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
         };
          ticketsCollection.updateOne(filter, updateDoc, options)
          .then(results=> {
-        res.redirect('/tickets');
+        //res.redirect('/tickets');
+        res.json({"success": "true"})
          })
          .catch(error=>console.error(error))
         });
 
-    //delete ticket
+    
+        //delete ticket
     app.delete('/tickets', (req,res) => {
-        console.log("delete works");
-        db.collection('tickets').deleteOne({_id: ObjectID(req.body.id)})
+        db.collection('tickets').deleteOne({_id: ObjectID(req.body._id)})
         .then(results => {
-            console.log("ticket deleted");
-            res.redirect('/tickets');
+            console.log(results)
+            res.json({"success": "true"})
+            // res.redirect('/tickets');
         })
         .catch(error=>console.error(error))
     });
-
-
-
 
 
   })
@@ -164,8 +181,8 @@ MongoClient.connect('mongodb+srv://capstonebuddies:capstonegroup@cluster0.jmk06.
 // ========================
 // Listen
 // ========================
-const port = 9990
-app.use('/', router);
+const port = process.env.PORT || 9990
+//app.use('/', router);
 app.listen(port, function(){
     console.log(`listening on port ${port}`)
 })
