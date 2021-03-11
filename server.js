@@ -26,7 +26,7 @@ const config = {
     authRequired: false,
     auth0Logout: true,
     secret: 'a long, randomly-generated string stored in env',
-    baseURL: 'http://localhost:9990',
+    baseURL: process.env.BASEURL || 'http://localhost:9990',
     clientID: 'VqX5PxoT4S6pBQg2ehZGtrjcMrxTDOuY',
     issuerBaseURL: 'https://dev-kk-ig869.us.auth0.com'
 };
