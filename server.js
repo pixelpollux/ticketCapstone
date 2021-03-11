@@ -1,6 +1,6 @@
 const dotenv = require('dotenv');
 const express = require('express');
-const bodyParser= require('body-parser');
+const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 const app = express();
 const ObjectID = require('mongodb').ObjectID;
@@ -23,12 +23,12 @@ const { auth } = require('express-openid-connect');
 const { requiresAuth } = require('express-openid-connect');
 
 const config = {
-  authRequired: false,
-  auth0Logout: true,
-  secret: 'a long, randomly-generated string stored in env',
-  baseURL: 'http://localhost:9990',
-  clientID: 'VqX5PxoT4S6pBQg2ehZGtrjcMrxTDOuY',
-  issuerBaseURL: 'https://dev-kk-ig869.us.auth0.com'
+    authRequired: false,
+    auth0Logout: true,
+    secret: 'a long, randomly-generated string stored in env',
+    baseURL: 'http://localhost:9990',
+    clientID: 'VqX5PxoT4S6pBQg2ehZGtrjcMrxTDOuY',
+    issuerBaseURL: 'https://dev-kk-ig869.us.auth0.com'
 };
 
 // auth router attaches /login, /logout, and /callback routes to the baseURL
@@ -36,14 +36,15 @@ app.use(auth(config));
 
 //creates profile after login
 app.get('/profile', requiresAuth(), (req, res) => {
-  res.send(JSON.stringify(req.oidc.user));
+    res.send(JSON.stringify(req.oidc.user));
 });
 
 // ========================================================================
 //mongo
 // ========================================================================
 MongoClient.connect(process.env.DB, {
-    useUnifiedTopology: true}, (err, client) => {
+    useUnifiedTopology: true
+}, (err, client) => {
     if (err) return console.error(err)
     console.log('Connected to Database')
     const db = client.db('ticket-tracker-db')
@@ -65,7 +66,7 @@ MongoClient.connect(process.env.DB, {
 
     //auth0 authentication
     app.get('/', (req, res) => {
-        if (req.oidc.isAuthenticated()){
+        if (req.oidc.isAuthenticated()) {
             //if logged in, redirects to ticket dashboard
             console.log('logged in')
             res.redirect('/tickets');
@@ -83,23 +84,19 @@ MongoClient.connect(process.env.DB, {
     //renders tickets to ticket page
     app.get('/tickets', (req, res) => {
         db.collection('tickets').find().toArray()
-        .then(results => {
-            console.log(results)
-            res.render('tickets.ejs', { tickets: results })
-        })
-        .catch(error => console.error(error))
+            .then(results => {
+                res.render('tickets.ejs', { tickets: results })
+            })
+            .catch(error => console.error(error))
     })
 
     //creates tickets and sends to database
     app.post('/tickets', (req, res) => {
-        // console.log(ticketsCollection);
         ticketsCollection.insertOne(req.body)
-        .then(result => {
-            // console.log(result)
-            //sends back to ticket page
-            res.redirect('/tickets');
-        })
-        .catch(error => console.error(error))
+            .then(result => {
+                res.redirect('/tickets');
+            })
+            .catch(error => console.error(error))
     })
 
 
@@ -107,7 +104,7 @@ MongoClient.connect(process.env.DB, {
     // create form page
     // ========================================================================
 
-    app.get('/createForm', (req, res,html) => {
+    app.get('/createForm', (req, res, html) => {
         res.sendFile(path.join(__dirname + '/public/html/createForm.html'));
     });
 
@@ -119,12 +116,6 @@ MongoClient.connect(process.env.DB, {
         res.render('ticketEdit');
     });
 
-    // app.get('/ticketEdit', (req, res) => {
-        // res.json({"success":"true"})
-    // })
-
-    
-
     // ========================================================================
     // ticket details page
     // ========================================================================
@@ -132,46 +123,42 @@ MongoClient.connect(process.env.DB, {
     app.get('/tickets/:id', (req, res) => {
         const ticketsId = req.params.id
         db.collection('tickets').find({ '_id': ObjectID(ticketsId) }).toArray()
-        .then(results => {
-            res.render('ticketDetails.ejs', { tickets: results })
-        })
-        .catch(error => console.error(error))
-    });    
+            .then(results => {
+                res.render('ticketDetails.ejs', { tickets: results })
+            })
+            .catch(error => console.error(error))
+    });
 
     //edit ticket
     app.put('/tickets', (req, res) => {
-        // create a filter for a movie to update
-        const filter= { _id: ObjectID(req.body.id)};
+        // create a filter for a ticket to update
+        const filter = { _id: ObjectID(req.body.id) };
         // this option instructs the method to create a document if no documents match the filter
-        const options= { upsert: false };
+        const options = { upsert: false };
         // create a document that sets the plot of the movie
-        const updateDoc= {
-        $set: {
-            ticketTitle: req.body.ticketTitle,
-        },
+        const updateDoc = {
+            $set: {
+                ticketTitle: req.body.ticketTitle,
+            },
         };
-         ticketsCollection.updateOne(filter, updateDoc, options)
-         .then(results=> {
-        //res.redirect('/tickets');
-        res.json({"success": "true"})
-         })
-         .catch(error=>console.error(error))
-        });
-
-    
-        //delete ticket
-    app.delete('/tickets', (req,res) => {
-        db.collection('tickets').deleteOne({_id: ObjectID(req.body._id)})
-        .then(results => {
-            console.log(results)
-            res.json({"success": "true"})
-            // res.redirect('/tickets');
-        })
-        .catch(error=>console.error(error))
+        ticketsCollection.updateOne(filter, updateDoc, options)
+            .then(results => {
+                res.json({ "success": "true" })
+            })
+            .catch(error => console.error(error))
     });
 
 
-  })
+    //delete ticket
+    app.delete('/tickets', (req, res) => {
+        db.collection('tickets').deleteOne({ _id: ObjectID(req.body._id) })
+            .then(results => {
+                res.json({ "success": "true" })
+            })
+            .catch(error => console.error(error))
+    });
+
+})
 
 
 
@@ -183,7 +170,7 @@ MongoClient.connect(process.env.DB, {
 // ========================
 const port = process.env.PORT || 9990
 //app.use('/', router);
-app.listen(port, function(){
+app.listen(port, function () {
     console.log(`listening on port ${port}`)
 })
 

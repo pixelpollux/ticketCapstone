@@ -1,6 +1,6 @@
 const ticketTitle = document.getElementById("ticketTitle");
 
-function deleteTicket(id) {
+deleteTicket = (id) => {
     fetch('/tickets', {
             method: 'delete',
             headers: { 'Content-Type': 'application/json' },
@@ -14,7 +14,7 @@ function deleteTicket(id) {
         .catch(error => console.error(error))
 }
 
-function createTicket() {
+createTicket = () => {
     fetch('/tickets', {
         method: 'post',
         headers: { 'Content-Type': 'application/json' },
@@ -28,7 +28,7 @@ function createTicket() {
     .catch(error => console.error(error))    
 }
 
-function doUpdate() {
+doUpdate = () => {
     let ticketId = document.getElementById("showId").innerHTML;
     let ticketTitle = document.getElementById("ticketTitle").value;
     fetch('/tickets', {
@@ -45,7 +45,7 @@ function doUpdate() {
         })
         .catch(error => console.error(error))  
 }
-function showUpdate(id,title) {
+showUpdate = (id,title) => {
         var inputPrompt = prompt("Ticket Title:", title);
         if (inputPrompt == null || inputPrompt == "") {
         } else {
